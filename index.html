@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<!-- js resources -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.2/js/bootstrap-colorpicker.min.js"></script>
+
+
+	<!-- css resources -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.2/css/bootstrap-colorpicker.min.css">
+
+	<!-- page resources -->
+	<script src="luxon.min.js"></script>
+	<script src="timezones.json"></script>
+	<script src="index.js"></script>
+	<link rel="stylesheet" href="index.css">
+
+	<!-- dynamic fonts [loaded on selection of font] -->
+</head>
+
+<body>
+
+	<div class="container-fluid display">
+		<div id="clock-row-1" class="row h-50 vertical-align clock-row"></div>
+		<div id="clock-row-2" class="row h-50 vertical-align clock-row"></div>
+	</div>
+
+	<!-- Clock Settings Modal -->
+	<!-- header -->
+	<div id="settings-modal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<h5 class="modal-title">Settings</h5>
+					<button type="button" class="close modal-close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+
+				<!-- body -->
+				<div class="modal-body">
+
+					<!-- clock select buttons row -->
+					<div class="row mb-4">
+						<div class="col-6">
+							Select clock
+							<div class="btn-toolbar mb-3">
+								<div class="btn-group btn-group-sm mr-3">
+									<button id="clock-select-button-1" class="btn btn-secondary clock-select-button clock-select-button-1" type="button">1</button>
+									<button id="clock-select-button-2" class="btn btn-secondary clock-select-button clock-select-button-2" type="button">2</button>
+									<button id="clock-select-button-3" class="btn btn-secondary clock-select-button clock-select-button-3" type="button">3</button>
+									<button id="clock-select-button-4" class="btn btn-secondary clock-select-button clock-select-button-4" type="button">4</button>
+								</div>
+								<div class="btn-group btn-group-sm mr-3">
+									<button id="clock-select-button-all" class="btn btn-secondary clock-select-button clock-select-button-all" type="button">All</button>
+								</div>
+							</div>
+							<div class="btn-toolbar">
+								<div class="btn-group btn-group-sm mr-3">
+									<button id="clock-select-button-5" class="btn btn-secondary clock-select-button clock-select-button-5" type="button">5</button>
+									<button id="clock-select-button-6" class="btn btn-secondary clock-select-button clock-select-button-6" type="button">6</button>
+									<button id="clock-select-button-7" class="btn btn-secondary clock-select-button clock-select-button-7" type="button">7</button>
+									<button id="clock-select-button-8" class="btn btn-secondary clock-select-button clock-select-button-8" type="button">8</button>
+								</div>
+								<!-- <div class="btn-group btn-group-sm mr-3">
+									<button id="clock-select-button-None" class="btn btn-secondary clock-select-button clock-select-button-none" type="button">None</button>
+								</div> -->
+							</div>
+						</div>
+
+						<div class="col-6">
+							<div class="max-clocks float-right">
+								<label>Max Clocks</label>
+								<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+										<button id="max-clocks-minus" class="btn btn-secondary max-clocks-button" type="button">-</button>
+									</div>
+									<input id="max-clocks" type="text" value="8" readonly />
+									<div class="input-group-append">
+										<button id="max-clocks-plus" class="btn btn-secondary max-clocks-button" type="button">+</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<!-- tab panel -->
+					<div class="tab-navigation">
+						
+						<!-- nav pills row -->
+						<ul id="pills-tab" class="nav nav-pills mb-3" role="tablist">
+							<li class="nav-item">
+								<a id="pill-clock-settings" class="nav-link active" data-toggle="pill" href="#clock-settings-tab" role="tab">Clock settings</a>
+							</li>
+							<li class="nav-item">
+								<a id="pill-display-settings" class="nav-link" data-toggle="pill" href="#display-settings-tab" role="tab">Display settings</a>
+							</li>
+						</ul>
+
+						<div id="pills-tab-content" class="tab-content">
+							<!-- clockSettings tab -->
+							<div id="clock-settings-tab" class="tab-pane fade show active" role="tabpanel">
+
+								<!-- timezone selector -->
+								<div class="row mb-2">
+									<div class="col">
+										Timezone
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;Show all
+												</div>
+											</div>
+											<select id="timezone-select" class="custom-select" ></select>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- toggles for 12/24hr show seconds and blink/numbers for -->
+								<div class="row mb-2">
+
+									<!-- 12/24hr dropdown -->
+									<div class="col">
+										Clock format
+										<div>
+											<select id="ampm" class="custom-select">
+												<option value="null" selected hidden>Select hour format</option>
+												<option value="12hr">12 hour</option>
+												<option value="24hr">24 hour</option>
+											</select>
+										</div>
+									</div>
+
+									<!-- number/blink seconds dropdown -->
+									<div class="col">
+										&nbsp;
+										<div>
+											<select id="show-seconds" class="custom-select">
+												<option value="null" selected hidden>Select second format</option>
+												<option value="none">No seconds</option>
+												<option value="number">Numbers</option>
+												<option value="blink">Blink separator</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+
+								<!-- Clock heading (city/country/etc.) -->
+								<div class="row mb-2">
+									<div class="col">
+										Clock title
+										<div>
+											<select id="clock-title-select" class="custom-select">
+												<option value="null" selected hidden>Select title type</option>
+												<option value="short">Short name</option>
+												<option value="city">City</option>
+												<option value="country">Country</option>
+												<option value="timezone">Timezone</option>
+												<option value="custom">Custom</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom clock heading  -->
+								<div id="custom-clock-title-select-row" class="row mb-2 d-none">
+										<div class="col">
+											Custom title
+											<div class="input-group">
+												<input id="custom-clock-title-select" type="text" placeholder="e.g. My Hometown" class="form-control" >
+												<div class="input-group-append">
+														<button id="custom-clock-title-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								<!-- Date format -->
+								<div class="row mb-2">
+									<div class="col">
+										Date format
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Locale</button>
+												<div class="dropdown-menu">
+													<a class="dropdown-item" href="#">en-US</a>
+													<a class="dropdown-item" href="#">en-UK</a>
+													<a class="dropdown-item" href="#">en-ZW</a>
+												</div>
+											</div>
+											<select id="date-format-select" class="custom-select">
+												<option value="null" selected hidden>Select date format</option>
+												<option value="none">No date</option>
+												<option value="short">Short date</option>
+												<option value="shortday">Short date with day</option>
+												<option value="long">Long date</option>
+												<option value="custom">Custom</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Custom date format -->
+								<div id="custom-date-format-select-row" class="row mb-2 d-none">
+									<div class="col">
+										Custom date format
+										<div class="input-group">
+											<input id="custom-date-format-select" type="text" placeholder="e.g. dd/LLL/y" class="form-control" >
+											<div class="input-group-append">
+													<button id="custom-date-format-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- generalSettings tab -->
+							<div id="display-settings-tab" class="tab-pane fade"role="tabpanel">
+
+								<!-- Theme select -->
+								<div class="row mb-2">
+									<div class="col">
+										Theme
+										<select class="custom-select" id="themeSelect">
+											<option selected hidden>Select theme</option>
+											<option value="none">None</option>
+											<option value="theme_coral">Coral</option>
+											<option value="theme_digital">Digital</option>
+											<option value="theme_enterprise">Enterprise</option>
+											<option value="theme_indigofera">Indigofera</option>
+											<option value="theme_kokiri">Kokiri</option>
+											<option value="theme_lcd">LCD</option>
+											<option value="theme_lega">Lega</option>
+											<option value="theme_rainbow">Rainbow</option>
+										</select>
+									</div>
+
+									<!-- <div class="col-4">
+										<div>&nbsp;</div>
+										<button id="reset-style-button" class="btn btn-danger reset-button float-right" type="button">Reset all</button>
+									</div> -->
+
+								</div>
+
+								<div class="row mb-2">
+									<div class="col-8">
+										Clock title font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="title-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="title-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="title-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="title-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-4">
+										<div class="col">&nbsp;
+											<div>
+												<input id="title-font-color" type="text" class="colorpicker form-control" value="#000000" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col-8">
+										Time font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="time-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="time-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="time-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="time-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-4">
+										<div class="col">&nbsp;
+											<div>
+												<input id="time-font-color" type="text" class="colorpicker form-control" value="#000000" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col-8">
+										Date font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="date-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="date-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="date-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="date-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-4">
+										<div class="col">&nbsp;
+											<div>
+												<input id="date-font-color" type="text" class="colorpicker form-control" value="#000000" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col">
+										Background
+										<input id="clock-background-color" type="text" class="colorpicker form-control" value="#000000" />
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col">
+										Highlight non-local dates
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="highlight-nonlocal-dates" type="checkbox">
+												</div>
+											</div>
+											<input id="highlight-nonlocal-dates-color" type="text" class="colorpicker form-control" value="#000000" />
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col">
+										Highlight non-business hours
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="highlight-nonbusiness-hours" type="checkbox">
+												</div>
+											</div>
+											<input id="highlight-nonbusiness-hours-color" type="text" class="colorpicker form-control" value="#000000" />
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end modal -->
+
+</body>
+
+</html>

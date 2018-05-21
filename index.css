@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Digital-7';
+	src: url('digital-7.ttf'); 
+}
+
+body, html, .container-fluid, .col {
+	height: 100%;
+}
+
+#max-clocks {
+	max-width: 30px;
+}
+
+.max-clocks label, .max-clocks input {
+	vertical-align: middle;
+	text-align: center;
+    padding:0px;
+    margin:0px;
+}
+
+.modal {
+	max-height: 100%;
+	overflow-y: auto;
+}
+
+.modal-close:focus, .modal-close:active {
+    box-shadow: none;
+    outline: none;
+}
+
+.font-underline { 
+	text-decoration: underline; 
+}
+
+.date-before-today-color {
+	color: red;
+}
+
+.date-after-today-color {
+	color: red;
+}
+
+.time-before-9-bolor {
+	color: lightgray;
+}
+
+.time-after-5-color {
+	color: lightgray;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
