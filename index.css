@@ -7,6 +7,10 @@ body, html, .container-fluid, .col {
 	height: 100%;
 }
 
+.font-size {
+	max-width: 70px;
+}
+
 #max-clocks {
 	max-width: 30px;
 }
@@ -32,20 +36,26 @@ body, html, .container-fluid, .col {
 	text-decoration: underline; 
 }
 
-.date-before-today-color {
-	color: red;
+
+.invisible {
+	visibility: hidden;
 }
 
-.date-after-today-color {
-	color: red;
+.no-border {
+	border: none;
 }
 
-.time-before-9-bolor {
-	color: lightgray;
+.preview-icon svg {
+	margin-top: 4px;
 }
 
-.time-after-5-color {
-	color: lightgray;
+.preview-mode {
+	display: none;
+}
+
+.transparent-background {
+	background-color: transparent;
+	background: none;
 }
 
 .vertical-align {
