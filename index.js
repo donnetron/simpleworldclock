@@ -12,8 +12,11 @@ $(function () {
     console.log(worldClocks);
 
     //init timezone selector menus
-    var allTimezones = allClockMenuTemplate(zoneArray);
-    var commonTimezones = commonClockMenuTemplate(zoneArray);
+    var allTimezones = getClockMenuTemplate(zoneArray, "all");
+    var commonTimezones = getClockMenuTemplate(zoneArray, "common");
+
+    var allLocales = getLocaleMenuTemplate(localesArray, "all");
+    var commonLocales = getLocaleMenuTemplate(localesArray, "common")
 
     //init maxClocks selector
     $('#max-clocks').attr("value", globalSettings.maxClocks)
@@ -150,7 +153,15 @@ $(function () {
                 obj.settings.showSeconds = $('#show-seconds').val();
             }
         });
+    });
 
+    //Show seconds
+    $('#number-system').change(function () {
+        $.each(worldClocks, function (index, obj) {
+            if (obj.selected == true) {
+                obj.settings.numberSystem = $('#number-system').val();
+            }
+        });
     });
 
     //Select clock title
@@ -176,6 +187,24 @@ $(function () {
             }
         });
     });
+
+    //All/common locale
+    $('#all-common-locale').change(function () {
+        if ($('#all-common-locale').is(':checked')) {
+            $('#locale-select').html(allLocales);
+        } else {
+            $('#locale-select').html(commonLocales);
+        }
+    });
+
+    //Set locale for clock
+        $('#locale-select').change(function () {
+            $.each(worldClocks, function (index, obj) {
+                if (obj.selected == true) {
+                    obj.settings.locale = $('#locale-select').val();
+                }
+            });
+        });
 
     //Select date format
     $('#date-format-select').change(function () {
@@ -472,7 +501,9 @@ function updateClockStyle(worldClocks) {
         });
 
         //title-font-size
-        $('#clock-title-' + obj.id).css({ 'font-size': obj.settings.title.fontSize + 'px' });
+        $('#clock-title-' + obj.id).css({
+            'font-size': obj.settings.title.fontSize + 'px'
+        });
 
         //title-color
         $('#clock-title-' + obj.id).css({
@@ -507,7 +538,9 @@ function updateClockStyle(worldClocks) {
         });
 
         //time-font-size
-        $('#clock-time-' + obj.id).css({ 'font-size': obj.settings.time.fontSize + 'px' });
+        $('#clock-time-' + obj.id).css({
+            'font-size': obj.settings.time.fontSize + 'px'
+        });
 
         //time-color
         $('#clock-time-' + obj.id).css({
@@ -543,7 +576,9 @@ function updateClockStyle(worldClocks) {
         });
 
         //date-font-size
-        $('#clock-date-' + obj.id).css({ 'font-size': obj.settings.date.fontSize + 'px' });
+        $('#clock-date-' + obj.id).css({
+            'font-size': obj.settings.date.fontSize + 'px'
+        });
 
         //date-color
         $('#clock-date-' + obj.id).css({
@@ -651,6 +686,33 @@ function getTitleFormat(clock) {
     return title;
 }
 
+function getTimeFormat(ldt, clock) {
+    var time;
+
+    if (clock.settings.ampm == "12hr") {
+        if (clock.settings.showSeconds == "number") {
+            time = ldt.reconfigure({
+                numberingSystem: clock.settings.numberSystem
+            }).toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
+        } else {
+            time = ldt.reconfigure({
+                numberingSystem: clock.settings.numberSystem
+            }).toLocaleString(luxon.DateTime.TIME_SIMPLE);
+        } // for blink or none
+    } else {
+        if (clock.settings.showSeconds == "number") {
+            time = ldt.reconfigure({
+                numberingSystem: clock.settings.numberSystem
+            }).toLocaleString(luxon.DateTime.TIME_24_WITH_SECONDS);
+        } else {
+            time = ldt.reconfigure({
+                numberingSystem: clock.settings.numberSystem
+            }).toLocaleString(luxon.DateTime.TIME_24_SIMPLE);
+        } // for blink or none
+    }
+    return time;
+}
+
 function getDateFormat(ldt, clock) {
     var date;
 
@@ -659,38 +721,19 @@ function getDateFormat(ldt, clock) {
             date = "";
             break;
         case "short":
-            date = ldt.setLocale('en-GB').toLocaleString(luxon.DateTime.DATE_MED);
+            date = ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "shortday":
-            date = ldt.weekdayShort + ", " + ldt.setLocale('en-GB').toLocaleString(luxon.DateTime.DATE_MED);
+            date = ldt.weekdayShort + ", " + ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "long":
-            date = ldt.setLocale('en-GB').toLocaleString(luxon.DateTime.DATE_HUGE);
+            date = ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_HUGE);
             break;
         default:
-            date = ldt.setLocale('en-GB').toFormat(clock.settings.dateFormat);
+            date = ldt.setLocale(clock.settings.locale).toFormat(clock.settings.dateFormat);
             break;
     }
     return date;
-}
-
-function getTimeFormat(ldt, clock) {
-    var time;
-
-    if (clock.settings.ampm == "12hr") {
-        if (clock.settings.showSeconds == "number") {
-            time = ldt.setLocale('en-US').toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
-        } else {
-            time = ldt.setLocale('en-US').toLocaleString(luxon.DateTime.TIME_SIMPLE);
-        } // for blink or none
-    } else {
-        if (clock.settings.showSeconds == "number") {
-            time = ldt.setLocale('en-US').toLocaleString(luxon.DateTime.TIME_24_WITH_SECONDS);
-        } else {
-            time = ldt.setLocale('en-US').toLocaleString(luxon.DateTime.TIME_24_SIMPLE);
-        } // for blink or none
-    }
-    return time;
 }
 
 //return an array of timeZone objects (from zoneArray) that match the given timezone string (e.g. "Europe/London" will return the zoneArray data object(s) that match thaat string in the timzeone property)
@@ -774,6 +817,7 @@ function getDefaultClock() {
             highlightNonlocalDatesColor: "#000000",
             highlightNonbusinessHours: false,
             highlightNonbusinessHoursColor: "000000",
+            numberSystem: "latn",
             showSeconds: "none",
             titleFormat: "city"
         }
@@ -799,37 +843,48 @@ function clockTemplate(clock) {
     return template;
 }
 
-function commonClockMenuTemplate(timezoneArray) {
-    var template = `<option id="select" selected hidden>Select timezone</option>
-                    <option value="null">None (No clock displayed)</option>`;
+function getClockMenuTemplate(timezoneArray, subset) {
+    var template = `<option selected hidden>Select timezone</option>`;
     var group = '';
-    var commonZones = [];
-    $.each(timezoneArray, function (index, timezone) {
-        if (timezone.common == "true") {
-            commonZones.push(timezone);
-        }
-    });
-    commonZones.sort(function (a, b) {
-        return parseFloat(a.numericalUTCoffset) - parseFloat(b.numericalUTCoffset);
-    });
-    $.each(commonZones, function (index, timezone) {
-        template += `<option value = "${timezone.timezone}">(${timezone.UTCoffset}) ${timezone.timezone}</option>`;
-    });
+    if (subset == "all") {
+        $.each(timezoneArray, function (index, timezone) {
+            if (group != timezone.region) {
+                group = timezone.region;
+                template += `<optgroup label="${timezone.region}">`;
+            }
+            template += `<option value = "${timezone.timezone}">${timezone.timezone} (${timezone.UTCoffset})</option>`;
+        });
+    } else if (subset == "common") {
+        var commonZones = [];
+        $.each(timezoneArray, function (index, timezone) {
+            if (timezone.common == "true") {
+                commonZones.push(timezone);
+            }
+        });
+        commonZones.sort(function (a, b) {
+            return parseFloat(a.numericalUTCoffset) - parseFloat(b.numericalUTCoffset);
+        });
+        $.each(commonZones, function (index, timezone) {
+            template += `<option value = "${timezone.timezone}">(${timezone.UTCoffset}) ${timezone.timezone}</option>`;
+        });
+    }
 
     return template;
 }
 
-function allClockMenuTemplate(timezoneArray) {
-    var template = `<option selected hidden>Select timezone</option>
-                    <option value = "0">None (No clock displayed)</option>`;
-    var group = '';
-    $.each(timezoneArray, function (index, timezone) {
-        if (group != timezone.region) {
-            group = timezone.region;
-            template += `<optgroup label="${timezone.region}">`;
-        }
-        template += `<option value = "${timezone.timezone}">${timezone.timezone} (${timezone.UTCoffset})</option>`;
-    });
+function getLocaleMenuTemplate(localeArray, subset) {
+    var template = `<option selected hidden>Select locale</option>`;
+    if (subset == "all") {
+        $.each(localeArray, function (index, locale) {
+            template += `<option value = "${locale.code}">${locale.description}</option>`;
+        });
+    } else if (subset == "common") {
+        $.each(localeArray, function (index, locale) {
+            if (locale.common == "true") {
+                template += `<option value = "${locale.code}">${locale.description}</option>`;
+            }
+        });
+    }
 
     return template;
 }

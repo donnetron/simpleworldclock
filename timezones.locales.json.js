@@ -7223,1487 +7223,1488 @@
 		"format": "",
 		"notes": "",
 		"comments": ""
-	}];
+	}
+];
 
-	var locales = [
-		{
-		   "code":"af_NA",
-		   "description":"Afrikaans (Namibia)",
-		   "common":false
-		},
-		{
-		   "code":"af_ZA",
-		   "description":"Afrikaans (South Africa)",
-		   "common":false
-		},
-		{
-		   "code":"ak_GH",
-		   "description":"Akan (Ghana)",
-		   "common":false
-		},
-		{
-		   "code":"sq_AL",
-		   "description":"Albanian (Albania)",
-		   "common":false
-		},
-		{
-		   "code":"am_ET",
-		   "description":"Amharic (Ethiopia)",
-		   "common":false
-		},
-		{
-		   "code":"ar_DZ",
-		   "description":"Arabic (Algeria)",
-		   "common":false
-		},
-		{
-		   "code":"ar_BH",
-		   "description":"Arabic (Bahrain)",
-		   "common":false
-		},
-		{
-		   "code":"ar_EG",
-		   "description":"Arabic (Egypt)",
-		   "common":false
-		},
-		{
-		   "code":"ar_IQ",
-		   "description":"Arabic (Iraq)",
-		   "common":false
-		},
-		{
-		   "code":"ar_JO",
-		   "description":"Arabic (Jordan)",
-		   "common":false
-		},
-		{
-		   "code":"ar_KW",
-		   "description":"Arabic (Kuwait)",
-		   "common":false
-		},
-		{
-		   "code":"ar_LB",
-		   "description":"Arabic (Lebanon)",
-		   "common":false
-		},
-		{
-		   "code":"ar_LY",
-		   "description":"Arabic (Libya)",
-		   "common":false
-		},
-		{
-		   "code":"ar_MA",
-		   "description":"Arabic (Morocco)",
-		   "common":false
-		},
-		{
-		   "code":"ar_OM",
-		   "description":"Arabic (Oman)",
-		   "common":false
-		},
-		{
-		   "code":"ar_QA",
-		   "description":"Arabic (Qatar)",
-		   "common":false
-		},
-		{
-		   "code":"ar_SA",
-		   "description":"Arabic (Saudi Arabia)",
-		   "common":true
-		},
-		{
-		   "code":"ar_SD",
-		   "description":"Arabic (Sudan)",
-		   "common":false
-		},
-		{
-		   "code":"ar_SY",
-		   "description":"Arabic (Syria)",
-		   "common":false
-		},
-		{
-		   "code":"ar_TN",
-		   "description":"Arabic (Tunisia)",
-		   "common":false
-		},
-		{
-		   "code":"ar_AE",
-		   "description":"Arabic (United Arab Emirates)",
-		   "common":false
-		},
-		{
-		   "code":"ar_YE",
-		   "description":"Arabic (Yemen)",
-		   "common":false
-		},
-		{
-		   "code":"hy_AM",
-		   "description":"Armenian (Armenia)",
-		   "common":false
-		},
-		{
-		   "code":"as_IN",
-		   "description":"Assamese (India)",
-		   "common":false
-		},
-		{
-		   "code":"asa_TZ",
-		   "description":"Asu (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"az_Cyrl",
-		   "description":"Azerbaijani (Cyrillic)",
-		   "common":false
-		},
-		{
-		   "code":"az_Cyrl_AZ",
-		   "description":"Azerbaijani (Cyrillic, Azerbaijan)",
-		   "common":false
-		},
-		{
-		   "code":"az_Latn",
-		   "description":"Azerbaijani (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"az_Latn_AZ",
-		   "description":"Azerbaijani (Latin, Azerbaijan)",
-		   "common":false
-		},
-		{
-		   "code":"bm_ML",
-		   "description":"Bambara (Mali)",
-		   "common":false
-		},
-		{
-		   "code":"eu_ES",
-		   "description":"Basque (Spain)",
-		   "common":false
-		},
-		{
-		   "code":"be_BY",
-		   "description":"Belarusian (Belarus)",
-		   "common":false
-		},
-		{
-		   "code":"bem_ZM",
-		   "description":"Bemba (Zambia)",
-		   "common":false
-		},
-		{
-		   "code":"bez_TZ",
-		   "description":"Bena (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"bn_BD",
-		   "description":"Bengali (Bangladesh)",
-		   "common":false
-		},
-		{
-		   "code":"bn_IN",
-		   "description":"Bengali (India)",
-		   "common":false
-		},
-		{
-		   "code":"bs_BA",
-		   "description":"Bosnian (Bosnia and Herzegovina)",
-		   "common":false
-		},
-		{
-		   "code":"bg_BG",
-		   "description":"Bulgarian (Bulgaria)",
-		   "common":false
-		},
-		{
-		   "code":"my_MM",
-		   "description":"Burmese (Myanmar [Burma])",
-		   "common":false
-		},
-		{
-		   "code":"ca_ES",
-		   "description":"Catalan (Spain)",
-		   "common":false
-		},
-		{
-		   "code":"tzm_Latn",
-		   "description":"Central Morocco Tamazight (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"tzm_Latn_MA",
-		   "description":"Central Morocco Tamazight (Latin, Morocco)",
-		   "common":false
-		},
-		{
-		   "code":"chr_US",
-		   "description":"Cherokee (United States)",
-		   "common":false
-		},
-		{
-		   "code":"cgg_UG",
-		   "description":"Chiga (Uganda)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hans",
-		   "description":"Chinese (Simplified Han)",
-		   "common":true
-		},
-		{
-		   "code":"zh_Hans_CN",
-		   "description":"Chinese (Simplified Han, China)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hans_HK",
-		   "description":"Chinese (Simplified Han, Hong Kong SAR China)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hans_MO",
-		   "description":"Chinese (Simplified Han, Macau SAR China)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hans_SG",
-		   "description":"Chinese (Simplified Han, Singapore)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hant",
-		   "description":"Chinese (Traditional Han)",
-		   "common":true
-		},
-		{
-		   "code":"zh_Hant_HK",
-		   "description":"Chinese (Traditional Han, Hong Kong SAR China)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hant_MO",
-		   "description":"Chinese (Traditional Han, Macau SAR China)",
-		   "common":false
-		},
-		{
-		   "code":"zh_Hant_TW",
-		   "description":"Chinese (Traditional Han, Taiwan)",
-		   "common":false
-		},
-		{
-		   "code":"kw_GB",
-		   "description":"Cornish (United Kingdom)",
-		   "common":false
-		},
-		{
-		   "code":"hr_HR",
-		   "description":"Croatian (Croatia)",
-		   "common":false
-		},
-		{
-		   "code":"cs_CZ",
-		   "description":"Czech (Czech Republic)",
-		   "common":false
-		},
-		{
-		   "code":"da_DK",
-		   "description":"Danish (Denmark)",
-		   "common":false
-		},
-		{
-		   "code":"nl_BE",
-		   "description":"Dutch (Belgium)",
-		   "common":false
-		},
-		{
-		   "code":"nl_NL",
-		   "description":"Dutch (Netherlands)",
-		   "common":false
-		},
-		{
-		   "code":"ebu_KE",
-		   "description":"Embu (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"en_AS",
-		   "description":"English (American Samoa)",
-		   "common":false
-		},
-		{
-		   "code":"en_AU",
-		   "description":"English (Australia)",
-		   "common":true
-		},
-		{
-		   "code":"en_BE",
-		   "description":"English (Belgium)",
-		   "common":false
-		},
-		{
-		   "code":"en_BZ",
-		   "description":"English (Belize)",
-		   "common":false
-		},
-		{
-		   "code":"en_BW",
-		   "description":"English (Botswana)",
-		   "common":false
-		},
-		{
-		   "code":"en_CA",
-		   "description":"English (Canada)",
-		   "common":false
-		},
-		{
-		   "code":"en_GU",
-		   "description":"English (Guam)",
-		   "common":false
-		},
-		{
-		   "code":"en_HK",
-		   "description":"English (Hong Kong SAR China)",
-		   "common":false
-		},
-		{
-		   "code":"en_IN",
-		   "description":"English (India)",
-		   "common":false
-		},
-		{
-		   "code":"en_IE",
-		   "description":"English (Ireland)",
-		   "common":false
-		},
-		{
-		   "code":"en_JM",
-		   "description":"English (Jamaica)",
-		   "common":false
-		},
-		{
-		   "code":"en_MT",
-		   "description":"English (Malta)",
-		   "common":false
-		},
-		{
-		   "code":"en_MH",
-		   "description":"English (Marshall Islands)",
-		   "common":false
-		},
-		{
-		   "code":"en_MU",
-		   "description":"English (Mauritius)",
-		   "common":false
-		},
-		{
-		   "code":"en_NA",
-		   "description":"English (Namibia)",
-		   "common":false
-		},
-		{
-		   "code":"en_NZ",
-		   "description":"English (New Zealand)",
-		   "common":false
-		},
-		{
-		   "code":"en_MP",
-		   "description":"English (Northern Mariana Islands)",
-		   "common":false
-		},
-		{
-		   "code":"en_PK",
-		   "description":"English (Pakistan)",
-		   "common":false
-		},
-		{
-		   "code":"en_PH",
-		   "description":"English (Philippines)",
-		   "common":false
-		},
-		{
-		   "code":"en_SG",
-		   "description":"English (Singapore)",
-		   "common":false
-		},
-		{
-		   "code":"en_ZA",
-		   "description":"English (South Africa)",
-		   "common":false
-		},
-		{
-		   "code":"en_TT",
-		   "description":"English (Trinidad and Tobago)",
-		   "common":false
-		},
-		{
-		   "code":"en_UM",
-		   "description":"English (U.S. Minor Outlying Islands)",
-		   "common":false
-		},
-		{
-		   "code":"en_VI",
-		   "description":"English (U.S. Virgin Islands)",
-		   "common":false
-		},
-		{
-		   "code":"en_GB",
-		   "description":"English (United Kingdom)",
-		   "common":true
-		},
-		{
-		   "code":"en_US",
-		   "description":"English (United States)",
-		   "common":true
-		},
-		{
-		   "code":"en_ZW",
-		   "description":"English (Zimbabwe)",
-		   "common":false
-		},
-		{
-		   "code":"et_EE",
-		   "description":"Estonian (Estonia)",
-		   "common":false
-		},
-		{
-		   "code":"ee_GH",
-		   "description":"Ewe (Ghana)",
-		   "common":false
-		},
-		{
-		   "code":"ee_TG",
-		   "description":"Ewe (Togo)",
-		   "common":false
-		},
-		{
-		   "code":"fo_FO",
-		   "description":"Faroese (Faroe Islands)",
-		   "common":false
-		},
-		{
-		   "code":"fil_PH",
-		   "description":"Filipino (Philippines)",
-		   "common":false
-		},
-		{
-		   "code":"fi_FI",
-		   "description":"Finnish (Finland)",
-		   "common":false
-		},
-		{
-		   "code":"fr_BE",
-		   "description":"French (Belgium)",
-		   "common":false
-		},
-		{
-		   "code":"fr_BJ",
-		   "description":"French (Benin)",
-		   "common":false
-		},
-		{
-		   "code":"fr_BF",
-		   "description":"French (Burkina Faso)",
-		   "common":false
-		},
-		{
-		   "code":"fr_BI",
-		   "description":"French (Burundi)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CM",
-		   "description":"French (Cameroon)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CA",
-		   "description":"French (Canada)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CF",
-		   "description":"French (Central African Republic)",
-		   "common":false
-		},
-		{
-		   "code":"fr_TD",
-		   "description":"French (Chad)",
-		   "common":false
-		},
-		{
-		   "code":"fr_KM",
-		   "description":"French (Comoros)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CG",
-		   "description":"French (Congo - Brazzaville)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CD",
-		   "description":"French (Congo - Kinshasa)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CI",
-		   "description":"French (Côte d’Ivoire)",
-		   "common":false
-		},
-		{
-		   "code":"fr_DJ",
-		   "description":"French (Djibouti)",
-		   "common":false
-		},
-		{
-		   "code":"fr_GQ",
-		   "description":"French (Equatorial Guinea)",
-		   "common":false
-		},
-		{
-		   "code":"fr_FR",
-		   "description":"French (France)",
-		   "common":true
-		},
-		{
-		   "code":"fr_GA",
-		   "description":"French (Gabon)",
-		   "common":false
-		},
-		{
-		   "code":"fr_GP",
-		   "description":"French (Guadeloupe)",
-		   "common":false
-		},
-		{
-		   "code":"fr_GN",
-		   "description":"French (Guinea)",
-		   "common":false
-		},
-		{
-		   "code":"fr_LU",
-		   "description":"French (Luxembourg)",
-		   "common":false
-		},
-		{
-		   "code":"fr_MG",
-		   "description":"French (Madagascar)",
-		   "common":false
-		},
-		{
-		   "code":"fr_ML",
-		   "description":"French (Mali)",
-		   "common":false
-		},
-		{
-		   "code":"fr_MQ",
-		   "description":"French (Martinique)",
-		   "common":false
-		},
-		{
-		   "code":"fr_MC",
-		   "description":"French (Monaco)",
-		   "common":false
-		},
-		{
-		   "code":"fr_NE",
-		   "description":"French (Niger)",
-		   "common":false
-		},
-		{
-		   "code":"fr_RW",
-		   "description":"French (Rwanda)",
-		   "common":false
-		},
-		{
-		   "code":"fr_RE",
-		   "description":"French (Réunion)",
-		   "common":false
-		},
-		{
-		   "code":"fr_BL",
-		   "description":"French (Saint Barthélemy)",
-		   "common":false
-		},
-		{
-		   "code":"fr_MF",
-		   "description":"French (Saint Martin)",
-		   "common":false
-		},
-		{
-		   "code":"fr_SN",
-		   "description":"French (Senegal)",
-		   "common":false
-		},
-		{
-		   "code":"fr_CH",
-		   "description":"French (Switzerland)",
-		   "common":false
-		},
-		{
-		   "code":"fr_TG",
-		   "description":"French (Togo)",
-		   "common":false
-		},
-		{
-		   "code":"ff_SN",
-		   "description":"Fulah (Senegal)",
-		   "common":false
-		},
-		{
-		   "code":"gl_ES",
-		   "description":"Galician (Spain)",
-		   "common":false
-		},
-		{
-		   "code":"lg_UG",
-		   "description":"Ganda (Uganda)",
-		   "common":false
-		},
-		{
-		   "code":"ka_GE",
-		   "description":"Georgian (Georgia)",
-		   "common":false
-		},
-		{
-		   "code":"de_AT",
-		   "description":"German (Austria)",
-		   "common":false
-		},
-		{
-		   "code":"de_BE",
-		   "description":"German (Belgium)",
-		   "common":false
-		},
-		{
-		   "code":"de_DE",
-		   "description":"German (Germany)",
-		   "common":true
-		},
-		{
-		   "code":"de_LI",
-		   "description":"German (Liechtenstein)",
-		   "common":false
-		},
-		{
-		   "code":"de_LU",
-		   "description":"German (Luxembourg)",
-		   "common":false
-		},
-		{
-		   "code":"de_CH",
-		   "description":"German (Switzerland)",
-		   "common":false
-		},
-		{
-		   "code":"el_CY",
-		   "description":"Greek (Cyprus)",
-		   "common":false
-		},
-		{
-		   "code":"el_GR",
-		   "description":"Greek (Greece)",
-		   "common":false
-		},
-		{
-		   "code":"gu_IN",
-		   "description":"Gujarati (India)",
-		   "common":true
-		},
-		{
-		   "code":"guz_KE",
-		   "description":"Gusii (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"ha_Latn",
-		   "description":"Hausa (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"ha_Latn_GH",
-		   "description":"Hausa (Latin, Ghana)",
-		   "common":false
-		},
-		{
-		   "code":"ha_Latn_NE",
-		   "description":"Hausa (Latin, Niger)",
-		   "common":false
-		},
-		{
-		   "code":"ha_Latn_NG",
-		   "description":"Hausa (Latin, Nigeria)",
-		   "common":false
-		},
-		{
-		   "code":"haw_US",
-		   "description":"Hawaiian (United States)",
-		   "common":false
-		},
-		{
-		   "code":"he_IL",
-		   "description":"Hebrew (Israel)",
-		   "common":false
-		},
-		{
-		   "code":"hi_IN",
-		   "description":"Hindi (India)",
-		   "common":true
-		},
-		{
-		   "code":"hu_HU",
-		   "description":"Hungarian (Hungary)",
-		   "common":false
-		},
-		{
-		   "code":"is_IS",
-		   "description":"Icelandic (Iceland)",
-		   "common":false
-		},
-		{
-		   "code":"ig_NG",
-		   "description":"Igbo (Nigeria)",
-		   "common":false
-		},
-		{
-		   "code":"id_ID",
-		   "description":"Indonesian (Indonesia)",
-		   "common":false
-		},
-		{
-		   "code":"ga_IE",
-		   "description":"Irish (Ireland)",
-		   "common":false
-		},
-		{
-		   "code":"it_IT",
-		   "description":"Italian (Italy)",
-		   "common":true
-		},
-		{
-		   "code":"it_CH",
-		   "description":"Italian (Switzerland)",
-		   "common":false
-		},
-		{
-		   "code":"ja_JP",
-		   "description":"Japanese (Japan)",
-		   "common":true
-		},
-		{
-		   "code":"kea_CV",
-		   "description":"Kabuverdianu (Cape Verde)",
-		   "common":false
-		},
-		{
-		   "code":"kab_DZ",
-		   "description":"Kabyle (Algeria)",
-		   "common":false
-		},
-		{
-		   "code":"kl_GL",
-		   "description":"Kalaallisut (Greenland)",
-		   "common":false
-		},
-		{
-		   "code":"kln_KE",
-		   "description":"Kalenjin (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"kam_KE",
-		   "description":"Kamba (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"kn_IN",
-		   "description":"Kannada (India)",
-		   "common":false
-		},
-		{
-		   "code":"kk_Cyrl",
-		   "description":"Kazakh (Cyrillic)",
-		   "common":false
-		},
-		{
-		   "code":"kk_Cyrl_KZ",
-		   "description":"Kazakh (Cyrillic, Kazakhstan)",
-		   "common":false
-		},
-		{
-		   "code":"km_KH",
-		   "description":"Khmer (Cambodia)",
-		   "common":false
-		},
-		{
-		   "code":"ki_KE",
-		   "description":"Kikuyu (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"rw_RW",
-		   "description":"Kinyarwanda (Rwanda)",
-		   "common":false
-		},
-		{
-		   "code":"kok_IN",
-		   "description":"Konkani (India)",
-		   "common":false
-		},
-		{
-		   "code":"ko_KR",
-		   "description":"Korean (South Korea)",
-		   "common":true
-		},
-		{
-		   "code":"khq_ML",
-		   "description":"Koyra Chiini (Mali)",
-		   "common":false
-		},
-		{
-		   "code":"ses_ML",
-		   "description":"Koyraboro Senni (Mali)",
-		   "common":false
-		},
-		{
-		   "code":"lag_TZ",
-		   "description":"Langi (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"lv_LV",
-		   "description":"Latvian (Latvia)",
-		   "common":false
-		},
-		{
-		   "code":"lt_LT",
-		   "description":"Lithuanian (Lithuania)",
-		   "common":false
-		},
-		{
-		   "code":"luo_KE",
-		   "description":"Luo (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"luy_KE",
-		   "description":"Luyia (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"mk_MK",
-		   "description":"Macedonian (Macedonia)",
-		   "common":false
-		},
-		{
-		   "code":"jmc_TZ",
-		   "description":"Machame (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"kde_TZ",
-		   "description":"Makonde (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"mg_MG",
-		   "description":"Malagasy (Madagascar)",
-		   "common":false
-		},
-		{
-		   "code":"ms_BN",
-		   "description":"Malay (Brunei)",
-		   "common":false
-		},
-		{
-		   "code":"ms_MY",
-		   "description":"Malay (Malaysia)",
-		   "common":false
-		},
-		{
-		   "code":"ml_IN",
-		   "description":"Malayalam (India)",
-		   "common":false
-		},
-		{
-		   "code":"mt_MT",
-		   "description":"Maltese (Malta)",
-		   "common":false
-		},
-		{
-		   "code":"gv_GB",
-		   "description":"Manx (United Kingdom)",
-		   "common":false
-		},
-		{
-		   "code":"mr_IN",
-		   "description":"Marathi (India)",
-		   "common":false
-		},
-		{
-		   "code":"mas_KE",
-		   "description":"Masai (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"mas_TZ",
-		   "description":"Masai (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"mer_KE",
-		   "description":"Meru (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"mfe_MU",
-		   "description":"Morisyen (Mauritius)",
-		   "common":false
-		},
-		{
-		   "code":"naq_NA",
-		   "description":"Nama (Namibia)",
-		   "common":false
-		},
-		{
-		   "code":"ne_IN",
-		   "description":"Nepali (India)",
-		   "common":false
-		},
-		{
-		   "code":"ne_NP",
-		   "description":"Nepali (Nepal)",
-		   "common":false
-		},
-		{
-		   "code":"nd_ZW",
-		   "description":"North Ndebele (Zimbabwe)",
-		   "common":false
-		},
-		{
-		   "code":"nb_NO",
-		   "description":"Norwegian Bokmål (Norway)",
-		   "common":false
-		},
-		{
-		   "code":"nn_NO",
-		   "description":"Norwegian Nynorsk (Norway)",
-		   "common":false
-		},
-		{
-		   "code":"nyn_UG",
-		   "description":"Nyankole (Uganda)",
-		   "common":false
-		},
-		{
-		   "code":"or_IN",
-		   "description":"Oriya (India)",
-		   "common":false
-		},
-		{
-		   "code":"om_ET",
-		   "description":"Oromo (Ethiopia)",
-		   "common":false
-		},
-		{
-		   "code":"om_KE",
-		   "description":"Oromo (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"ps_AF",
-		   "description":"Pashto (Afghanistan)",
-		   "common":false
-		},
-		{
-		   "code":"fa_AF",
-		   "description":"Persian (Afghanistan)",
-		   "common":false
-		},
-		{
-		   "code":"fa_IR",
-		   "description":"Persian (Iran)",
-		   "common":false
-		},
-		{
-		   "code":"pl_PL",
-		   "description":"Polish (Poland)",
-		   "common":true
-		},
-		{
-		   "code":"pt_BR",
-		   "description":"Portuguese (Brazil)",
-		   "common":false
-		},
-		{
-		   "code":"pt_GW",
-		   "description":"Portuguese (Guinea-Bissau)",
-		   "common":false
-		},
-		{
-		   "code":"pt_MZ",
-		   "description":"Portuguese (Mozambique)",
-		   "common":false
-		},
-		{
-		   "code":"pt_PT",
-		   "description":"Portuguese (Portugal)",
-		   "common":true
-		},
-		{
-		   "code":"pa_Arab",
-		   "description":"Punjabi (Arabic)",
-		   "common":false
-		},
-		{
-		   "code":"pa_Arab_PK",
-		   "description":"Punjabi (Arabic, Pakistan)",
-		   "common":false
-		},
-		{
-		   "code":"pa_Guru",
-		   "description":"Punjabi (Gurmukhi)",
-		   "common":false
-		},
-		{
-		   "code":"pa_Guru_IN",
-		   "description":"Punjabi (Gurmukhi, India)",
-		   "common":true
-		},
-		{
-		   "code":"ro_MD",
-		   "description":"Romanian (Moldova)",
-		   "common":false
-		},
-		{
-		   "code":"ro_RO",
-		   "description":"Romanian (Romania)",
-		   "common":false
-		},
-		{
-		   "code":"rm_CH",
-		   "description":"Romansh (Switzerland)",
-		   "common":false
-		},
-		{
-		   "code":"rof_TZ",
-		   "description":"Rombo (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"ru_MD",
-		   "description":"Russian (Moldova)",
-		   "common":false
-		},
-		{
-		   "code":"ru_RU",
-		   "description":"Russian (Russia)",
-		   "common":true
-		},
-		{
-		   "code":"ru_UA",
-		   "description":"Russian (Ukraine)",
-		   "common":false
-		},
-		{
-		   "code":"rwk_TZ",
-		   "description":"Rwa (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"saq_KE",
-		   "description":"Samburu (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"sg_CF",
-		   "description":"Sango (Central African Republic)",
-		   "common":false
-		},
-		{
-		   "code":"seh_MZ",
-		   "description":"Sena (Mozambique)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Cyrl",
-		   "description":"Serbian (Cyrillic)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Cyrl_BA",
-		   "description":"Serbian (Cyrillic, Bosnia and Herzegovina)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Cyrl_ME",
-		   "description":"Serbian (Cyrillic, Montenegro)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Cyrl_RS",
-		   "description":"Serbian (Cyrillic, Serbia)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Latn",
-		   "description":"Serbian (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Latn_BA",
-		   "description":"Serbian (Latin, Bosnia and Herzegovina)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Latn_ME",
-		   "description":"Serbian (Latin, Montenegro)",
-		   "common":false
-		},
-		{
-		   "code":"sr_Latn_RS",
-		   "description":"Serbian (Latin, Serbia)",
-		   "common":false
-		},
-		{
-		   "code":"sn_ZW",
-		   "description":"Shona (Zimbabwe)",
-		   "common":false
-		},
-		{
-		   "code":"ii_CN",
-		   "description":"Sichuan Yi (China)",
-		   "common":false
-		},
-		{
-		   "code":"si_LK",
-		   "description":"Sinhala (Sri Lanka)",
-		   "common":false
-		},
-		{
-		   "code":"sk_SK",
-		   "description":"Slovak (Slovakia)",
-		   "common":false
-		},
-		{
-		   "code":"sl_SI",
-		   "description":"Slovenian (Slovenia)",
-		   "common":false
-		},
-		{
-		   "code":"xog_UG",
-		   "description":"Soga (Uganda)",
-		   "common":false
-		},
-		{
-		   "code":"so_DJ",
-		   "description":"Somali (Djibouti)",
-		   "common":false
-		},
-		{
-		   "code":"so_ET",
-		   "description":"Somali (Ethiopia)",
-		   "common":false
-		},
-		{
-		   "code":"so_KE",
-		   "description":"Somali (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"so_SO",
-		   "description":"Somali (Somalia)",
-		   "common":false
-		},
-		{
-		   "code":"es_AR",
-		   "description":"Spanish (Argentina)",
-		   "common":false
-		},
-		{
-		   "code":"es_BO",
-		   "description":"Spanish (Bolivia)",
-		   "common":false
-		},
-		{
-		   "code":"es_CL",
-		   "description":"Spanish (Chile)",
-		   "common":false
-		},
-		{
-		   "code":"es_CO",
-		   "description":"Spanish (Colombia)",
-		   "common":false
-		},
-		{
-		   "code":"es_CR",
-		   "description":"Spanish (Costa Rica)",
-		   "common":false
-		},
-		{
-		   "code":"es_DO",
-		   "description":"Spanish (Dominican Republic)",
-		   "common":false
-		},
-		{
-		   "code":"es_EC",
-		   "description":"Spanish (Ecuador)",
-		   "common":false
-		},
-		{
-		   "code":"es_SV",
-		   "description":"Spanish (El Salvador)",
-		   "common":false
-		},
-		{
-		   "code":"es_GQ",
-		   "description":"Spanish (Equatorial Guinea)",
-		   "common":false
-		},
-		{
-		   "code":"es_GT",
-		   "description":"Spanish (Guatemala)",
-		   "common":false
-		},
-		{
-		   "code":"es_HN",
-		   "description":"Spanish (Honduras)",
-		   "common":false
-		},
-		{
-		   "code":"es_419",
-		   "description":"Spanish (Latin America)",
-		   "common":false
-		},
-		{
-		   "code":"es_MX",
-		   "description":"Spanish (Mexico)",
-		   "common":false
-		},
-		{
-		   "code":"es_NI",
-		   "description":"Spanish (Nicaragua)",
-		   "common":false
-		},
-		{
-		   "code":"es_PA",
-		   "description":"Spanish (Panama)",
-		   "common":false
-		},
-		{
-		   "code":"es_PY",
-		   "description":"Spanish (Paraguay)",
-		   "common":false
-		},
-		{
-		   "code":"es_PE",
-		   "description":"Spanish (Peru)",
-		   "common":false
-		},
-		{
-		   "code":"es_PR",
-		   "description":"Spanish (Puerto Rico)",
-		   "common":false
-		},
-		{
-		   "code":"es_ES",
-		   "description":"Spanish (Spain)",
-		   "common":true
-		},
-		{
-		   "code":"es_US",
-		   "description":"Spanish (United States)",
-		   "common":false
-		},
-		{
-		   "code":"es_UY",
-		   "description":"Spanish (Uruguay)",
-		   "common":false
-		},
-		{
-		   "code":"es_VE",
-		   "description":"Spanish (Venezuela)",
-		   "common":false
-		},
-		{
-		   "code":"sw_KE",
-		   "description":"Swahili (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"sw_TZ",
-		   "description":"Swahili (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"sv_FI",
-		   "description":"Swedish (Finland)",
-		   "common":false
-		},
-		{
-		   "code":"sv_SE",
-		   "description":"Swedish (Sweden)",
-		   "common":false
-		},
-		{
-		   "code":"gsw_CH",
-		   "description":"Swiss German (Switzerland)",
-		   "common":false
-		},
-		{
-		   "code":"shi_Latn",
-		   "description":"Tachelhit (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"shi_Latn_MA",
-		   "description":"Tachelhit (Latin, Morocco)",
-		   "common":false
-		},
-		{
-		   "code":"shi_Tfng",
-		   "description":"Tachelhit (Tifinagh)",
-		   "common":false
-		},
-		{
-		   "code":"shi_Tfng_MA",
-		   "description":"Tachelhit (Tifinagh, Morocco)",
-		   "common":false
-		},
-		{
-		   "code":"dav_KE",
-		   "description":"Taita (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"ta_IN",
-		   "description":"Tamil (India)",
-		   "common":false
-		},
-		{
-		   "code":"ta_LK",
-		   "description":"Tamil (Sri Lanka)",
-		   "common":false
-		},
-		{
-		   "code":"te_IN",
-		   "description":"Telugu (India)",
-		   "common":false
-		},
-		{
-		   "code":"teo_KE",
-		   "description":"Teso (Kenya)",
-		   "common":false
-		},
-		{
-		   "code":"teo_UG",
-		   "description":"Teso (Uganda)",
-		   "common":false
-		},
-		{
-		   "code":"th_TH",
-		   "description":"Thai (Thailand)",
-		   "common":true
-		},
-		{
-		   "code":"bo_CN",
-		   "description":"Tibetan (China)",
-		   "common":false
-		},
-		{
-		   "code":"bo_IN",
-		   "description":"Tibetan (India)",
-		   "common":false
-		},
-		{
-		   "code":"ti_ER",
-		   "description":"Tigrinya (Eritrea)",
-		   "common":false
-		},
-		{
-		   "code":"ti_ET",
-		   "description":"Tigrinya (Ethiopia)",
-		   "common":false
-		},
-		{
-		   "code":"to_TO",
-		   "description":"Tonga (Tonga)",
-		   "common":false
-		},
-		{
-		   "code":"tr_TR",
-		   "description":"Turkish (Turkey)",
-		   "common":false
-		},
-		{
-		   "code":"uk_UA",
-		   "description":"Ukrainian (Ukraine)",
-		   "common":false
-		},
-		{
-		   "code":"ur_IN",
-		   "description":"Urdu (India)",
-		   "common":false
-		},
-		{
-		   "code":"ur_PK",
-		   "description":"Urdu (Pakistan)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Arab",
-		   "description":"Uzbek (Arabic)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Arab_AF",
-		   "description":"Uzbek (Arabic, Afghanistan)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Cyrl",
-		   "description":"Uzbek (Cyrillic)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Cyrl_UZ",
-		   "description":"Uzbek (Cyrillic, Uzbekistan)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Latn",
-		   "description":"Uzbek (Latin)",
-		   "common":false
-		},
-		{
-		   "code":"uz_Latn_UZ",
-		   "description":"Uzbek (Latin, Uzbekistan)",
-		   "common":false
-		},
-		{
-		   "code":"vi_VN",
-		   "description":"Vietnamese (Vietnam)",
-		   "common":false
-		},
-		{
-		   "code":"vun_TZ",
-		   "description":"Vunjo (Tanzania)",
-		   "common":false
-		},
-		{
-		   "code":"cy_GB",
-		   "description":"Welsh (United Kingdom)",
-		   "common":false
-		},
-		{
-		   "code":"yo_NG",
-		   "description":"Yoruba (Nigeria)",
-		   "common":false
-		},
-		{
-		   "code":"zu_ZA",
-		   "description":"Zulu (South Africa)",
-		   "common":false
-		}
-	}];
+var localesArray = [
+	{
+		"code": "af-NA",
+		"description": "Afrikaans (Namibia)",
+		"common": "false"
+	},
+	{
+		"code": "af-ZA",
+		"description": "Afrikaans (South Africa)",
+		"common": "false"
+	},
+	{
+		"code": "ak-GH",
+		"description": "Akan (Ghana)",
+		"common": "false"
+	},
+	{
+		"code": "sq-AL",
+		"description": "Albanian (Albania)",
+		"common": "false"
+	},
+	{
+		"code": "am-ET",
+		"description": "Amharic (Ethiopia)",
+		"common": "false"
+	},
+	{
+		"code": "ar-DZ",
+		"description": "Arabic (Algeria)",
+		"common": "false"
+	},
+	{
+		"code": "ar-BH",
+		"description": "Arabic (Bahrain)",
+		"common": "false"
+	},
+	{
+		"code": "ar-EG",
+		"description": "Arabic (Egypt)",
+		"common": "false"
+	},
+	{
+		"code": "ar-IQ",
+		"description": "Arabic (Iraq)",
+		"common": "false"
+	},
+	{
+		"code": "ar-JO",
+		"description": "Arabic (Jordan)",
+		"common": "false"
+	},
+	{
+		"code": "ar-KW",
+		"description": "Arabic (Kuwait)",
+		"common": "false"
+	},
+	{
+		"code": "ar-LB",
+		"description": "Arabic (Lebanon)",
+		"common": "false"
+	},
+	{
+		"code": "ar-LY",
+		"description": "Arabic (Libya)",
+		"common": "false"
+	},
+	{
+		"code": "ar-MA",
+		"description": "Arabic (Morocco)",
+		"common": "false"
+	},
+	{
+		"code": "ar-OM",
+		"description": "Arabic (Oman)",
+		"common": "false"
+	},
+	{
+		"code": "ar-QA",
+		"description": "Arabic (Qatar)",
+		"common": "false"
+	},
+	{
+		"code": "ar-SA",
+		"description": "Arabic (Saudi Arabia)",
+		"common": "true"
+	},
+	{
+		"code": "ar-SD",
+		"description": "Arabic (Sudan)",
+		"common": "false"
+	},
+	{
+		"code": "ar-SY",
+		"description": "Arabic (Syria)",
+		"common": "false"
+	},
+	{
+		"code": "ar-TN",
+		"description": "Arabic (Tunisia)",
+		"common": "false"
+	},
+	{
+		"code": "ar-AE",
+		"description": "Arabic (United Arab Emirates)",
+		"common": "false"
+	},
+	{
+		"code": "ar-YE",
+		"description": "Arabic (Yemen)",
+		"common": "false"
+	},
+	{
+		"code": "hy-AM",
+		"description": "Armenian (Armenia)",
+		"common": "false"
+	},
+	{
+		"code": "as-IN",
+		"description": "Assamese (India)",
+		"common": "false"
+	},
+	{
+		"code": "asa-TZ",
+		"description": "Asu (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "az-Cyrl",
+		"description": "Azerbaijani (Cyrillic)",
+		"common": "false"
+	},
+	{
+		"code": "az-Cyrl-AZ",
+		"description": "Azerbaijani (Cyrillic, Azerbaijan)",
+		"common": "false"
+	},
+	{
+		"code": "az-Latn",
+		"description": "Azerbaijani (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "az-Latn-AZ",
+		"description": "Azerbaijani (Latin, Azerbaijan)",
+		"common": "false"
+	},
+	{
+		"code": "bm-ML",
+		"description": "Bambara (Mali)",
+		"common": "false"
+	},
+	{
+		"code": "eu-ES",
+		"description": "Basque (Spain)",
+		"common": "false"
+	},
+	{
+		"code": "be-BY",
+		"description": "Belarusian (Belarus)",
+		"common": "false"
+	},
+	{
+		"code": "bem-ZM",
+		"description": "Bemba (Zambia)",
+		"common": "false"
+	},
+	{
+		"code": "bez-TZ",
+		"description": "Bena (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "bn-BD",
+		"description": "Bengali (Bangladesh)",
+		"common": "false"
+	},
+	{
+		"code": "bn-IN",
+		"description": "Bengali (India)",
+		"common": "false"
+	},
+	{
+		"code": "bs-BA",
+		"description": "Bosnian (Bosnia and Herzegovina)",
+		"common": "false"
+	},
+	{
+		"code": "bg-BG",
+		"description": "Bulgarian (Bulgaria)",
+		"common": "false"
+	},
+	{
+		"code": "my-MM",
+		"description": "Burmese (Myanmar [Burma])",
+		"common": "false"
+	},
+	{
+		"code": "ca-ES",
+		"description": "Catalan (Spain)",
+		"common": "false"
+	},
+	{
+		"code": "tzm-Latn",
+		"description": "Central Morocco Tamazight (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "tzm-Latn-MA",
+		"description": "Central Morocco Tamazight (Latin, Morocco)",
+		"common": "false"
+	},
+	{
+		"code": "chr-US",
+		"description": "Cherokee (United States)",
+		"common": "false"
+	},
+	{
+		"code": "cgg-UG",
+		"description": "Chiga (Uganda)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hans",
+		"description": "Chinese (Simplified Han)",
+		"common": "true"
+	},
+	{
+		"code": "zh-Hans-CN",
+		"description": "Chinese (Simplified Han, China)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hans-HK",
+		"description": "Chinese (Simplified Han, Hong Kong SAR China)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hans-MO",
+		"description": "Chinese (Simplified Han, Macau SAR China)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hans-SG",
+		"description": "Chinese (Simplified Han, Singapore)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hant",
+		"description": "Chinese (Traditional Han)",
+		"common": "true"
+	},
+	{
+		"code": "zh-Hant-HK",
+		"description": "Chinese (Traditional Han, Hong Kong SAR China)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hant-MO",
+		"description": "Chinese (Traditional Han, Macau SAR China)",
+		"common": "false"
+	},
+	{
+		"code": "zh-Hant-TW",
+		"description": "Chinese (Traditional Han, Taiwan)",
+		"common": "false"
+	},
+	{
+		"code": "kw-GB",
+		"description": "Cornish (United Kingdom)",
+		"common": "false"
+	},
+	{
+		"code": "hr-HR",
+		"description": "Croatian (Croatia)",
+		"common": "false"
+	},
+	{
+		"code": "cs-CZ",
+		"description": "Czech (Czech Republic)",
+		"common": "false"
+	},
+	{
+		"code": "da-DK",
+		"description": "Danish (Denmark)",
+		"common": "false"
+	},
+	{
+		"code": "nl-BE",
+		"description": "Dutch (Belgium)",
+		"common": "false"
+	},
+	{
+		"code": "nl-NL",
+		"description": "Dutch (Netherlands)",
+		"common": "false"
+	},
+	{
+		"code": "ebu-KE",
+		"description": "Embu (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "en-AS",
+		"description": "English (American Samoa)",
+		"common": "false"
+	},
+	{
+		"code": "en-AU",
+		"description": "English (Australia)",
+		"common": "true"
+	},
+	{
+		"code": "en-BE",
+		"description": "English (Belgium)",
+		"common": "false"
+	},
+	{
+		"code": "en-BZ",
+		"description": "English (Belize)",
+		"common": "false"
+	},
+	{
+		"code": "en-BW",
+		"description": "English (Botswana)",
+		"common": "false"
+	},
+	{
+		"code": "en-CA",
+		"description": "English (Canada)",
+		"common": "false"
+	},
+	{
+		"code": "en-GU",
+		"description": "English (Guam)",
+		"common": "false"
+	},
+	{
+		"code": "en-HK",
+		"description": "English (Hong Kong SAR China)",
+		"common": "false"
+	},
+	{
+		"code": "en-IN",
+		"description": "English (India)",
+		"common": "false"
+	},
+	{
+		"code": "en-IE",
+		"description": "English (Ireland)",
+		"common": "false"
+	},
+	{
+		"code": "en-JM",
+		"description": "English (Jamaica)",
+		"common": "false"
+	},
+	{
+		"code": "en-MT",
+		"description": "English (Malta)",
+		"common": "false"
+	},
+	{
+		"code": "en-MH",
+		"description": "English (Marshall Islands)",
+		"common": "false"
+	},
+	{
+		"code": "en-MU",
+		"description": "English (Mauritius)",
+		"common": "false"
+	},
+	{
+		"code": "en-NA",
+		"description": "English (Namibia)",
+		"common": "false"
+	},
+	{
+		"code": "en-NZ",
+		"description": "English (New Zealand)",
+		"common": "false"
+	},
+	{
+		"code": "en-MP",
+		"description": "English (Northern Mariana Islands)",
+		"common": "false"
+	},
+	{
+		"code": "en-PK",
+		"description": "English (Pakistan)",
+		"common": "false"
+	},
+	{
+		"code": "en-PH",
+		"description": "English (Philippines)",
+		"common": "false"
+	},
+	{
+		"code": "en-SG",
+		"description": "English (Singapore)",
+		"common": "false"
+	},
+	{
+		"code": "en-ZA",
+		"description": "English (South Africa)",
+		"common": "false"
+	},
+	{
+		"code": "en-TT",
+		"description": "English (Trinidad and Tobago)",
+		"common": "false"
+	},
+	{
+		"code": "en-UM",
+		"description": "English (U.S. Minor Outlying Islands)",
+		"common": "false"
+	},
+	{
+		"code": "en-VI",
+		"description": "English (U.S. Virgin Islands)",
+		"common": "false"
+	},
+	{
+		"code": "en-GB",
+		"description": "English (United Kingdom)",
+		"common": "true"
+	},
+	{
+		"code": "en-US",
+		"description": "English (United States)",
+		"common": "true"
+	},
+	{
+		"code": "en-ZW",
+		"description": "English (Zimbabwe)",
+		"common": "false"
+	},
+	{
+		"code": "et-EE",
+		"description": "Estonian (Estonia)",
+		"common": "false"
+	},
+	{
+		"code": "ee-GH",
+		"description": "Ewe (Ghana)",
+		"common": "false"
+	},
+	{
+		"code": "ee-TG",
+		"description": "Ewe (Togo)",
+		"common": "false"
+	},
+	{
+		"code": "fo-FO",
+		"description": "Faroese (Faroe Islands)",
+		"common": "false"
+	},
+	{
+		"code": "fil-PH",
+		"description": "Filipino (Philippines)",
+		"common": "false"
+	},
+	{
+		"code": "fi-FI",
+		"description": "Finnish (Finland)",
+		"common": "false"
+	},
+	{
+		"code": "fr-BE",
+		"description": "French (Belgium)",
+		"common": "false"
+	},
+	{
+		"code": "fr-BJ",
+		"description": "French (Benin)",
+		"common": "false"
+	},
+	{
+		"code": "fr-BF",
+		"description": "French (Burkina Faso)",
+		"common": "false"
+	},
+	{
+		"code": "fr-BI",
+		"description": "French (Burundi)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CM",
+		"description": "French (Cameroon)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CA",
+		"description": "French (Canada)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CF",
+		"description": "French (Central African Republic)",
+		"common": "false"
+	},
+	{
+		"code": "fr-TD",
+		"description": "French (Chad)",
+		"common": "false"
+	},
+	{
+		"code": "fr-KM",
+		"description": "French (Comoros)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CG",
+		"description": "French (Congo - Brazzaville)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CD",
+		"description": "French (Congo - Kinshasa)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CI",
+		"description": "French (Côte d’Ivoire)",
+		"common": "false"
+	},
+	{
+		"code": "fr-DJ",
+		"description": "French (Djibouti)",
+		"common": "false"
+	},
+	{
+		"code": "fr-GQ",
+		"description": "French (Equatorial Guinea)",
+		"common": "false"
+	},
+	{
+		"code": "fr-FR",
+		"description": "French (France)",
+		"common": "true"
+	},
+	{
+		"code": "fr-GA",
+		"description": "French (Gabon)",
+		"common": "false"
+	},
+	{
+		"code": "fr-GP",
+		"description": "French (Guadeloupe)",
+		"common": "false"
+	},
+	{
+		"code": "fr-GN",
+		"description": "French (Guinea)",
+		"common": "false"
+	},
+	{
+		"code": "fr-LU",
+		"description": "French (Luxembourg)",
+		"common": "false"
+	},
+	{
+		"code": "fr-MG",
+		"description": "French (Madagascar)",
+		"common": "false"
+	},
+	{
+		"code": "fr-ML",
+		"description": "French (Mali)",
+		"common": "false"
+	},
+	{
+		"code": "fr-MQ",
+		"description": "French (Martinique)",
+		"common": "false"
+	},
+	{
+		"code": "fr-MC",
+		"description": "French (Monaco)",
+		"common": "false"
+	},
+	{
+		"code": "fr-NE",
+		"description": "French (Niger)",
+		"common": "false"
+	},
+	{
+		"code": "fr-RW",
+		"description": "French (Rwanda)",
+		"common": "false"
+	},
+	{
+		"code": "fr-RE",
+		"description": "French (Réunion)",
+		"common": "false"
+	},
+	{
+		"code": "fr-BL",
+		"description": "French (Saint Barthélemy)",
+		"common": "false"
+	},
+	{
+		"code": "fr-MF",
+		"description": "French (Saint Martin)",
+		"common": "false"
+	},
+	{
+		"code": "fr-SN",
+		"description": "French (Senegal)",
+		"common": "false"
+	},
+	{
+		"code": "fr-CH",
+		"description": "French (Switzerland)",
+		"common": "false"
+	},
+	{
+		"code": "fr-TG",
+		"description": "French (Togo)",
+		"common": "false"
+	},
+	{
+		"code": "ff-SN",
+		"description": "Fulah (Senegal)",
+		"common": "false"
+	},
+	{
+		"code": "gl-ES",
+		"description": "Galician (Spain)",
+		"common": "false"
+	},
+	{
+		"code": "lg-UG",
+		"description": "Ganda (Uganda)",
+		"common": "false"
+	},
+	{
+		"code": "ka-GE",
+		"description": "Georgian (Georgia)",
+		"common": "false"
+	},
+	{
+		"code": "de-AT",
+		"description": "German (Austria)",
+		"common": "false"
+	},
+	{
+		"code": "de-BE",
+		"description": "German (Belgium)",
+		"common": "false"
+	},
+	{
+		"code": "de-DE",
+		"description": "German (Germany)",
+		"common": "true"
+	},
+	{
+		"code": "de-LI",
+		"description": "German (Liechtenstein)",
+		"common": "false"
+	},
+	{
+		"code": "de-LU",
+		"description": "German (Luxembourg)",
+		"common": "false"
+	},
+	{
+		"code": "de-CH",
+		"description": "German (Switzerland)",
+		"common": "false"
+	},
+	{
+		"code": "el-CY",
+		"description": "Greek (Cyprus)",
+		"common": "false"
+	},
+	{
+		"code": "el-GR",
+		"description": "Greek (Greece)",
+		"common": "false"
+	},
+	{
+		"code": "gu-IN",
+		"description": "Gujarati (India)",
+		"common": "true"
+	},
+	{
+		"code": "guz-KE",
+		"description": "Gusii (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "ha-Latn",
+		"description": "Hausa (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "ha-Latn-GH",
+		"description": "Hausa (Latin, Ghana)",
+		"common": "false"
+	},
+	{
+		"code": "ha-Latn-NE",
+		"description": "Hausa (Latin, Niger)",
+		"common": "false"
+	},
+	{
+		"code": "ha-Latn-NG",
+		"description": "Hausa (Latin, Nigeria)",
+		"common": "false"
+	},
+	{
+		"code": "haw-US",
+		"description": "Hawaiian (United States)",
+		"common": "false"
+	},
+	{
+		"code": "he-IL",
+		"description": "Hebrew (Israel)",
+		"common": "false"
+	},
+	{
+		"code": "hi-IN",
+		"description": "Hindi (India)",
+		"common": "true"
+	},
+	{
+		"code": "hu-HU",
+		"description": "Hungarian (Hungary)",
+		"common": "false"
+	},
+	{
+		"code": "is-IS",
+		"description": "Icelandic (Iceland)",
+		"common": "false"
+	},
+	{
+		"code": "ig-NG",
+		"description": "Igbo (Nigeria)",
+		"common": "false"
+	},
+	{
+		"code": "id-ID",
+		"description": "Indonesian (Indonesia)",
+		"common": "false"
+	},
+	{
+		"code": "ga-IE",
+		"description": "Irish (Ireland)",
+		"common": "false"
+	},
+	{
+		"code": "it-IT",
+		"description": "Italian (Italy)",
+		"common": "true"
+	},
+	{
+		"code": "it-CH",
+		"description": "Italian (Switzerland)",
+		"common": "false"
+	},
+	{
+		"code": "ja-JP",
+		"description": "Japanese (Japan)",
+		"common": "true"
+	},
+	{
+		"code": "kea-CV",
+		"description": "Kabuverdianu (Cape Verde)",
+		"common": "false"
+	},
+	{
+		"code": "kab-DZ",
+		"description": "Kabyle (Algeria)",
+		"common": "false"
+	},
+	{
+		"code": "kl-GL",
+		"description": "Kalaallisut (Greenland)",
+		"common": "false"
+	},
+	{
+		"code": "kln-KE",
+		"description": "Kalenjin (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "kam-KE",
+		"description": "Kamba (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "kn-IN",
+		"description": "Kannada (India)",
+		"common": "false"
+	},
+	{
+		"code": "kk-Cyrl",
+		"description": "Kazakh (Cyrillic)",
+		"common": "false"
+	},
+	{
+		"code": "kk-Cyrl-KZ",
+		"description": "Kazakh (Cyrillic, Kazakhstan)",
+		"common": "false"
+	},
+	{
+		"code": "km-KH",
+		"description": "Khmer (Cambodia)",
+		"common": "false"
+	},
+	{
+		"code": "ki-KE",
+		"description": "Kikuyu (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "rw-RW",
+		"description": "Kinyarwanda (Rwanda)",
+		"common": "false"
+	},
+	{
+		"code": "kok-IN",
+		"description": "Konkani (India)",
+		"common": "false"
+	},
+	{
+		"code": "ko-KR",
+		"description": "Korean (South Korea)",
+		"common": "true"
+	},
+	{
+		"code": "khq-ML",
+		"description": "Koyra Chiini (Mali)",
+		"common": "false"
+	},
+	{
+		"code": "ses-ML",
+		"description": "Koyraboro Senni (Mali)",
+		"common": "false"
+	},
+	{
+		"code": "lag-TZ",
+		"description": "Langi (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "lv-LV",
+		"description": "Latvian (Latvia)",
+		"common": "false"
+	},
+	{
+		"code": "lt-LT",
+		"description": "Lithuanian (Lithuania)",
+		"common": "false"
+	},
+	{
+		"code": "luo-KE",
+		"description": "Luo (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "luy-KE",
+		"description": "Luyia (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "mk-MK",
+		"description": "Macedonian (Macedonia)",
+		"common": "false"
+	},
+	{
+		"code": "jmc-TZ",
+		"description": "Machame (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "kde-TZ",
+		"description": "Makonde (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "mg-MG",
+		"description": "Malagasy (Madagascar)",
+		"common": "false"
+	},
+	{
+		"code": "ms-BN",
+		"description": "Malay (Brunei)",
+		"common": "false"
+	},
+	{
+		"code": "ms-MY",
+		"description": "Malay (Malaysia)",
+		"common": "false"
+	},
+	{
+		"code": "ml-IN",
+		"description": "Malayalam (India)",
+		"common": "false"
+	},
+	{
+		"code": "mt-MT",
+		"description": "Maltese (Malta)",
+		"common": "false"
+	},
+	{
+		"code": "gv-GB",
+		"description": "Manx (United Kingdom)",
+		"common": "false"
+	},
+	{
+		"code": "mr-IN",
+		"description": "Marathi (India)",
+		"common": "false"
+	},
+	{
+		"code": "mas-KE",
+		"description": "Masai (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "mas-TZ",
+		"description": "Masai (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "mer-KE",
+		"description": "Meru (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "mfe-MU",
+		"description": "Morisyen (Mauritius)",
+		"common": "false"
+	},
+	{
+		"code": "naq-NA",
+		"description": "Nama (Namibia)",
+		"common": "false"
+	},
+	{
+		"code": "ne-IN",
+		"description": "Nepali (India)",
+		"common": "false"
+	},
+	{
+		"code": "ne-NP",
+		"description": "Nepali (Nepal)",
+		"common": "false"
+	},
+	{
+		"code": "nd-ZW",
+		"description": "North Ndebele (Zimbabwe)",
+		"common": "false"
+	},
+	{
+		"code": "nb-NO",
+		"description": "Norwegian Bokmål (Norway)",
+		"common": "false"
+	},
+	{
+		"code": "nn-NO",
+		"description": "Norwegian Nynorsk (Norway)",
+		"common": "false"
+	},
+	{
+		"code": "nyn-UG",
+		"description": "Nyankole (Uganda)",
+		"common": "false"
+	},
+	{
+		"code": "or-IN",
+		"description": "Oriya (India)",
+		"common": "false"
+	},
+	{
+		"code": "om-ET",
+		"description": "Oromo (Ethiopia)",
+		"common": "false"
+	},
+	{
+		"code": "om-KE",
+		"description": "Oromo (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "ps-AF",
+		"description": "Pashto (Afghanistan)",
+		"common": "false"
+	},
+	{
+		"code": "fa-AF",
+		"description": "Persian (Afghanistan)",
+		"common": "false"
+	},
+	{
+		"code": "fa-IR",
+		"description": "Persian (Iran)",
+		"common": "false"
+	},
+	{
+		"code": "pl-PL",
+		"description": "Polish (Poland)",
+		"common": "true"
+	},
+	{
+		"code": "pt-BR",
+		"description": "Portuguese (Brazil)",
+		"common": "false"
+	},
+	{
+		"code": "pt-GW",
+		"description": "Portuguese (Guinea-Bissau)",
+		"common": "false"
+	},
+	{
+		"code": "pt-MZ",
+		"description": "Portuguese (Mozambique)",
+		"common": "false"
+	},
+	{
+		"code": "pt-PT",
+		"description": "Portuguese (Portugal)",
+		"common": "true"
+	},
+	{
+		"code": "pa-Arab",
+		"description": "Punjabi (Arabic)",
+		"common": "false"
+	},
+	{
+		"code": "pa-Arab-PK",
+		"description": "Punjabi (Arabic, Pakistan)",
+		"common": "false"
+	},
+	{
+		"code": "pa-Guru",
+		"description": "Punjabi (Gurmukhi)",
+		"common": "false"
+	},
+	{
+		"code": "pa-Guru-IN",
+		"description": "Punjabi (Gurmukhi, India)",
+		"common": "true"
+	},
+	{
+		"code": "ro-MD",
+		"description": "Romanian (Moldova)",
+		"common": "false"
+	},
+	{
+		"code": "ro-RO",
+		"description": "Romanian (Romania)",
+		"common": "false"
+	},
+	{
+		"code": "rm-CH",
+		"description": "Romansh (Switzerland)",
+		"common": "false"
+	},
+	{
+		"code": "rof-TZ",
+		"description": "Rombo (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "ru-MD",
+		"description": "Russian (Moldova)",
+		"common": "false"
+	},
+	{
+		"code": "ru-RU",
+		"description": "Russian (Russia)",
+		"common": "true"
+	},
+	{
+		"code": "ru-UA",
+		"description": "Russian (Ukraine)",
+		"common": "false"
+	},
+	{
+		"code": "rwk-TZ",
+		"description": "Rwa (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "saq-KE",
+		"description": "Samburu (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "sg-CF",
+		"description": "Sango (Central African Republic)",
+		"common": "false"
+	},
+	{
+		"code": "seh-MZ",
+		"description": "Sena (Mozambique)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Cyrl",
+		"description": "Serbian (Cyrillic)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Cyrl-BA",
+		"description": "Serbian (Cyrillic, Bosnia and Herzegovina)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Cyrl-ME",
+		"description": "Serbian (Cyrillic, Montenegro)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Cyrl-RS",
+		"description": "Serbian (Cyrillic, Serbia)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Latn",
+		"description": "Serbian (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Latn-BA",
+		"description": "Serbian (Latin, Bosnia and Herzegovina)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Latn-ME",
+		"description": "Serbian (Latin, Montenegro)",
+		"common": "false"
+	},
+	{
+		"code": "sr-Latn-RS",
+		"description": "Serbian (Latin, Serbia)",
+		"common": "false"
+	},
+	{
+		"code": "sn-ZW",
+		"description": "Shona (Zimbabwe)",
+		"common": "false"
+	},
+	{
+		"code": "ii-CN",
+		"description": "Sichuan Yi (China)",
+		"common": "false"
+	},
+	{
+		"code": "si-LK",
+		"description": "Sinhala (Sri Lanka)",
+		"common": "false"
+	},
+	{
+		"code": "sk-SK",
+		"description": "Slovak (Slovakia)",
+		"common": "false"
+	},
+	{
+		"code": "sl-SI",
+		"description": "Slovenian (Slovenia)",
+		"common": "false"
+	},
+	{
+		"code": "xog-UG",
+		"description": "Soga (Uganda)",
+		"common": "false"
+	},
+	{
+		"code": "so-DJ",
+		"description": "Somali (Djibouti)",
+		"common": "false"
+	},
+	{
+		"code": "so-ET",
+		"description": "Somali (Ethiopia)",
+		"common": "false"
+	},
+	{
+		"code": "so-KE",
+		"description": "Somali (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "so-SO",
+		"description": "Somali (Somalia)",
+		"common": "false"
+	},
+	{
+		"code": "es-AR",
+		"description": "Spanish (Argentina)",
+		"common": "false"
+	},
+	{
+		"code": "es-BO",
+		"description": "Spanish (Bolivia)",
+		"common": "false"
+	},
+	{
+		"code": "es-CL",
+		"description": "Spanish (Chile)",
+		"common": "false"
+	},
+	{
+		"code": "es-CO",
+		"description": "Spanish (Colombia)",
+		"common": "false"
+	},
+	{
+		"code": "es-CR",
+		"description": "Spanish (Costa Rica)",
+		"common": "false"
+	},
+	{
+		"code": "es-DO",
+		"description": "Spanish (Dominican Republic)",
+		"common": "false"
+	},
+	{
+		"code": "es-EC",
+		"description": "Spanish (Ecuador)",
+		"common": "false"
+	},
+	{
+		"code": "es-SV",
+		"description": "Spanish (El Salvador)",
+		"common": "false"
+	},
+	{
+		"code": "es-GQ",
+		"description": "Spanish (Equatorial Guinea)",
+		"common": "false"
+	},
+	{
+		"code": "es-GT",
+		"description": "Spanish (Guatemala)",
+		"common": "false"
+	},
+	{
+		"code": "es-HN",
+		"description": "Spanish (Honduras)",
+		"common": "false"
+	},
+	{
+		"code": "es-419",
+		"description": "Spanish (Latin America)",
+		"common": "false"
+	},
+	{
+		"code": "es-MX",
+		"description": "Spanish (Mexico)",
+		"common": "false"
+	},
+	{
+		"code": "es-NI",
+		"description": "Spanish (Nicaragua)",
+		"common": "false"
+	},
+	{
+		"code": "es-PA",
+		"description": "Spanish (Panama)",
+		"common": "false"
+	},
+	{
+		"code": "es-PY",
+		"description": "Spanish (Paraguay)",
+		"common": "false"
+	},
+	{
+		"code": "es-PE",
+		"description": "Spanish (Peru)",
+		"common": "false"
+	},
+	{
+		"code": "es-PR",
+		"description": "Spanish (Puerto Rico)",
+		"common": "false"
+	},
+	{
+		"code": "es-ES",
+		"description": "Spanish (Spain)",
+		"common": "true"
+	},
+	{
+		"code": "es-US",
+		"description": "Spanish (United States)",
+		"common": "false"
+	},
+	{
+		"code": "es-UY",
+		"description": "Spanish (Uruguay)",
+		"common": "false"
+	},
+	{
+		"code": "es-VE",
+		"description": "Spanish (Venezuela)",
+		"common": "false"
+	},
+	{
+		"code": "sw-KE",
+		"description": "Swahili (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "sw-TZ",
+		"description": "Swahili (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "sv-FI",
+		"description": "Swedish (Finland)",
+		"common": "false"
+	},
+	{
+		"code": "sv-SE",
+		"description": "Swedish (Sweden)",
+		"common": "false"
+	},
+	{
+		"code": "gsw-CH",
+		"description": "Swiss German (Switzerland)",
+		"common": "false"
+	},
+	{
+		"code": "shi-Latn",
+		"description": "Tachelhit (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "shi-Latn-MA",
+		"description": "Tachelhit (Latin, Morocco)",
+		"common": "false"
+	},
+	{
+		"code": "shi-Tfng",
+		"description": "Tachelhit (Tifinagh)",
+		"common": "false"
+	},
+	{
+		"code": "shi-Tfng-MA",
+		"description": "Tachelhit (Tifinagh, Morocco)",
+		"common": "false"
+	},
+	{
+		"code": "dav-KE",
+		"description": "Taita (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "ta-IN",
+		"description": "Tamil (India)",
+		"common": "false"
+	},
+	{
+		"code": "ta-LK",
+		"description": "Tamil (Sri Lanka)",
+		"common": "false"
+	},
+	{
+		"code": "te-IN",
+		"description": "Telugu (India)",
+		"common": "false"
+	},
+	{
+		"code": "teo-KE",
+		"description": "Teso (Kenya)",
+		"common": "false"
+	},
+	{
+		"code": "teo-UG",
+		"description": "Teso (Uganda)",
+		"common": "false"
+	},
+	{
+		"code": "th-TH",
+		"description": "Thai (Thailand)",
+		"common": "true"
+	},
+	{
+		"code": "bo-CN",
+		"description": "Tibetan (China)",
+		"common": "false"
+	},
+	{
+		"code": "bo-IN",
+		"description": "Tibetan (India)",
+		"common": "false"
+	},
+	{
+		"code": "ti-ER",
+		"description": "Tigrinya (Eritrea)",
+		"common": "false"
+	},
+	{
+		"code": "ti-ET",
+		"description": "Tigrinya (Ethiopia)",
+		"common": "false"
+	},
+	{
+		"code": "to-TO",
+		"description": "Tonga (Tonga)",
+		"common": "false"
+	},
+	{
+		"code": "tr-TR",
+		"description": "Turkish (Turkey)",
+		"common": "false"
+	},
+	{
+		"code": "uk-UA",
+		"description": "Ukrainian (Ukraine)",
+		"common": "false"
+	},
+	{
+		"code": "ur-IN",
+		"description": "Urdu (India)",
+		"common": "false"
+	},
+	{
+		"code": "ur-PK",
+		"description": "Urdu (Pakistan)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Arab",
+		"description": "Uzbek (Arabic)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Arab-AF",
+		"description": "Uzbek (Arabic, Afghanistan)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Cyrl",
+		"description": "Uzbek (Cyrillic)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Cyrl-UZ",
+		"description": "Uzbek (Cyrillic, Uzbekistan)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Latn",
+		"description": "Uzbek (Latin)",
+		"common": "false"
+	},
+	{
+		"code": "uz-Latn-UZ",
+		"description": "Uzbek (Latin, Uzbekistan)",
+		"common": "false"
+	},
+	{
+		"code": "vi-VN",
+		"description": "Vietnamese (Vietnam)",
+		"common": "false"
+	},
+	{
+		"code": "vun-TZ",
+		"description": "Vunjo (Tanzania)",
+		"common": "false"
+	},
+	{
+		"code": "cy-GB",
+		"description": "Welsh (United Kingdom)",
+		"common": "false"
+	},
+	{
+		"code": "yo-NG",
+		"description": "Yoruba (Nigeria)",
+		"common": "false"
+	},
+	{
+		"code": "zu-ZA",
+		"description": "Zulu (South Africa)",
+		"common": "false"
+	}
+];

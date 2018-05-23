@@ -20,7 +20,7 @@
 
 	<!-- page resources -->
 	<script src="luxon.min.js"></script>
-	<script src="timezones.json"></script>
+	<script src="timezones.locales.json.js"></script>
 	<script src="index.js"></script>
 	<link rel="stylesheet" href="index.css">
 
@@ -198,7 +198,7 @@
 
 										<!-- 12/24hr dropdown -->
 										<div class="col">
-											Clock format
+											12/24hr
 											<div>
 												<select id="ampm" class="custom-select">
 													<option value="null" selected hidden>Select hour format</option>
@@ -210,7 +210,7 @@
 
 										<!-- number/blink seconds dropdown -->
 										<div class="col">
-											&nbsp;
+											Second display
 											<div>
 												<select id="show-seconds" class="custom-select">
 													<option value="null" selected hidden>Select second format</option>
@@ -221,47 +221,34 @@
 											</div>
 										</div>
 
-									</div>
-
-									<!-- toggles for 12/24hr show seconds and blink/numbers for -->
-									<div class="row mb-2">
-
-										<!-- Lanugage/Region -->
-										<div class="col-4">
-											Language
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;All
-													</div>
-												</div>
-												<select id="timezone-select" class="custom-select"></select>
-											</div>
-										</div>
-
 										<!-- Numbering System -->
 										<div class="col-4">
 											Numbering System
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;All
-													</div>
-												</div>
-												<select id="timezone-select" class="custom-select"></select>
-											</div>
-										</div>
-
-										<!-- Region -->
-										<div class="col-4">
-											Region
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;All
-													</div>
-												</div>
-												<select id="timezone-select" class="custom-select"></select>
+											<div>
+												<select id="number-system" class="custom-select">
+													<option value="arab">arab</option>
+													<option value="arabext">arabext</option>
+													<option value="bali">bali</option>
+													<option value="beng">beng</option>
+													<option value="deva">deva</option>
+													<option value="fullwide">fullwide</option>
+													<option value="gujr">gujr</option>
+													<option value="guru">guru</option>
+													<option value="hanidec">hanidec</option>
+													<option value="khmr">khmr</option>
+													<option value="knda">knda</option>
+													<option value="laoo">laoo</option>
+													<option value="latn">latn</option>
+													<option value="limb">limb</option>
+													<option value="mlym">mlym</option>
+													<option value="mong">mong</option>
+													<option value="mymr">mymr</option>
+													<option value="orya">orya</option>
+													<option value="tamldec">tamldec</option>
+													<option value="telu">telu</option>
+													<option value="thai">thai</option>
+													<option value="tibt">tibt</option>
+												</select>
 											</div>
 										</div>
 
@@ -302,14 +289,6 @@
 										<div class="col">
 											Date format
 											<div class="input-group">
-												<div class="input-group-prepend">
-													<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Locale</button>
-													<div class="dropdown-menu">
-														<a class="dropdown-item" href="#">en-US</a>
-														<a class="dropdown-item" href="#">en-UK</a>
-														<a class="dropdown-item" href="#">en-ZW</a>
-													</div>
-												</div>
 												<select id="date-format-select" class="custom-select">
 													<option value="null" selected hidden>Select date format</option>
 													<option value="none">No date</option>
@@ -331,6 +310,21 @@
 												<div class="input-group-append">
 													<button id="custom-date-format-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
 												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Date locale -->
+									<div class="row mb-2">
+										<div class="col">
+											Date locale
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<input id="all-common-locale" type="checkbox" checked="checked">&nbsp;Show all
+													</div>
+												</div>
+												<select id="locale-select" class="custom-select"></select>
 											</div>
 										</div>
 									</div>
