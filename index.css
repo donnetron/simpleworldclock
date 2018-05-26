@@ -45,7 +45,7 @@ body, html, .container-fluid, .col {
 	border: none;
 }
 
-.preview-icon svg {
+.modal-header-icon svg {
 	margin-top: 4px;
 }
 

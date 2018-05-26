@@ -41,12 +41,17 @@
 			<div id="settings-modal-content" class="modal-content">
 
 				<div id="settings-modal-header" class="modal-header align-items-center">
-					<h5 class="modal-title">Settings
-						<span class="preview-mode">(preview mode)</span>
-					</h5>
+					<h5 class="modal-title">Settings</h5>
+					<div class="d-flex">
+						<button id="advanced-mode" type="button" class="modal-header-icon close modal-close align-items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path d="M0 0h24v24H0z" fill="none" />
+								<path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"
+								/>
+							</svg>
+						</button>
 
-					<div class="btn-group close">
-						<button type="button" class="preview-icon close modal-close d-flex align-items-center">
+						<button id="preview-mode" type="button" class="modal-header-icon close modal-close align-items-center">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
 							    height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 								<g id="Bounding_Boxes">
@@ -58,24 +63,23 @@
 									<g id="ui_x5F_spec_x5F_header_copy_5">
 									</g>
 									<path display="inline" d="M11.5,9C10.12,9,9,10.12,9,11.5s1.12,2.5,2.5,2.5s2.5-1.12,2.5-2.5S12.88,9,11.5,9z M20,4H4
-									   C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M16.08,17.5l-2.2-2.2
-									   c-0.9,0.58-2.03,0.84-3.22,0.62c-1.88-0.35-3.38-1.93-3.62-3.83c-0.38-3.01,2.18-5.52,5.21-5.04c1.88,0.3,3.39,1.84,3.7,3.71
-									   c0.19,1.16-0.08,2.23-0.64,3.12l2.2,2.19c0.39,0.39,0.39,1.03,0,1.42v0C17.11,17.89,16.47,17.89,16.08,17.5z" />
+C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M16.08,17.5l-2.2-2.2
+c-0.9,0.58-2.03,0.84-3.22,0.62c-1.88-0.35-3.38-1.93-3.62-3.83c-0.38-3.01,2.18-5.52,5.21-5.04c1.88,0.3,3.39,1.84,3.7,3.71
+c0.19,1.16-0.08,2.23-0.64,3.12l2.2,2.19c0.39,0.39,0.39,1.03,0,1.42v0C17.11,17.89,16.47,17.89,16.08,17.5z" />
 								</g>
 								<g id="Sharp" display="none">
 									<g id="ui_x5F_spec_x5F_header_copy_4">
 									</g>
 									<path display="inline" d="M11.5,9C10.12,9,9,10.12,9,11.5s1.12,2.5,2.5,2.5s2.5-1.12,2.5-2.5S12.88,9,11.5,9z M22,4H2v16h20V4z
-										M16.79,18.21l-2.91-2.91c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7S16,9.01,16,11.5
-									   c0,0.88-0.26,1.69-0.7,2.39l2.91,2.9L16.79,18.21z" />
+M16.79,18.21l-2.91-2.91c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7S16,9.01,16,11.5
+c0,0.88-0.26,1.69-0.7,2.39l2.91,2.9L16.79,18.21z" />
 								</g>
 								<g id="Outline">
 									<g id="ui_x5F_spec_x5F_header" display="none">
 									</g>
 									<g>
 										<path d="M11.49,16c0.88,0,1.7-0.26,2.39-0.7l2.44,2.44l1.42-1.42l-2.44-2.43c0.44-0.7,0.7-1.51,0.7-2.39C16,9.01,13.99,7,11.5,7
-										   S7,9.01,7,11.5S9.01,16,11.49,16z M11.5,9c1.38,0,2.5,1.12,2.5,2.5S12.88,14,11.5,14S9,12.88,9,11.5S10.12,9,11.5,9z"
-										/>
+S7,9.01,7,11.5S9.01,16,11.49,16z M11.5,9c1.38,0,2.5,1.12,2.5,2.5S12.88,14,11.5,14S9,12.88,9,11.5S10.12,9,11.5,9z" />
 										<path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,18H4V6h16V18z" />
 									</g>
 								</g>
@@ -84,11 +88,10 @@
 									</g>
 									<g display="inline">
 										<path opacity="0.3" d="M4,18h16V6H4V18z M11.5,7c2.49,0,4.5,2.01,4.5,4.5c0,0.88-0.26,1.69-0.7,2.39l2.44,2.43l-1.42,1.42
-										   l-2.44-2.44c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7z" />
+l-2.44-2.44c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7z" />
 										<g>
 											<path d="M11.49,16c0.88,0,1.7-0.26,2.39-0.7l2.44,2.44l1.42-1.42l-2.44-2.43c0.44-0.7,0.7-1.51,0.7-2.39C16,9.01,13.99,7,11.5,7
-											   S7,9.01,7,11.5S9.01,16,11.49,16z M11.5,9c1.38,0,2.5,1.12,2.5,2.5S12.88,14,11.5,14S9,12.88,9,11.5S10.12,9,11.5,9z"
-											/>
+S7,9.01,7,11.5S9.01,16,11.49,16z M11.5,9c1.38,0,2.5,1.12,2.5,2.5S12.88,14,11.5,14S9,12.88,9,11.5S10.12,9,11.5,9z" />
 										</g>
 										<path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,18H4V6h16V18z" />
 									</g>
@@ -97,15 +100,14 @@
 									<g id="ui_x5F_spec_x5F_header_copy">
 									</g>
 									<path display="inline" d="M11.5,9C10.12,9,9,10.12,9,11.5s1.12,2.5,2.5,2.5s2.5-1.12,2.5-2.5S12.88,9,11.5,9z M20,4H4
-									   C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M16.79,18.21l-2.91-2.91
-									   c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7S16,9.01,16,11.5c0,0.88-0.26,1.69-0.7,2.39l2.91,2.9
-									   L16.79,18.21z" />
+C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M16.79,18.21l-2.91-2.91
+c-0.69,0.44-1.51,0.7-2.39,0.7C9.01,16,7,13.99,7,11.5S9.01,7,11.5,7S16,9.01,16,11.5c0,0.88-0.26,1.69-0.7,2.39l2.91,2.9
+L16.79,18.21z" />
 								</g>
 							</svg>
-
 						</button>
 
-						<button type="button" class="close modal-close d-flex align-items-center" data-dismiss="modal">
+						<button type="button" class="close modal-close align-items-center" data-dismiss="modal">
 							<span>&times;</span>
 						</button>
 					</div>
@@ -116,10 +118,10 @@
 				<div id="settings-modal-body" class="modal-body">
 					<div id="settings-inner-body">
 						<!-- clock select buttons row -->
-						<div class="row mb-4">
-							<div class="col-6">
+						<div class="row mb-1">
+							<div class="col-5">
 								Select clock
-								<div class="btn-toolbar mb-3">
+								<div class="btn-toolbar">
 									<div class="btn-group btn-group-sm mr-3">
 										<button id="clock-select-button-1" class="btn btn-secondary clock-select-button clock-select-button-1" type="button">1</button>
 										<button id="clock-select-button-2" class="btn btn-secondary clock-select-button clock-select-button-2" type="button">2</button>
@@ -130,6 +132,40 @@
 										<button id="clock-select-button-all" class="btn btn-secondary clock-select-button clock-select-button-all" type="button">All</button>
 									</div>
 								</div>
+							</div>
+
+							<div class="col-3">
+								<div class="max-clocks">
+									<label>Max Clocks</label>
+									<div class="btn-toolbar">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend">
+												<button id="max-clocks-minus" class="btn btn-secondary max-clocks-button" type="button">-</button>
+											</div>
+											<input id="max-clocks" type="text" value="8" readonly />
+											<div class="input-group-append">
+												<button id="max-clocks-plus" class="btn btn-secondary max-clocks-button" type="button">+</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-4">
+								<div class="max-clocks float-right">
+									<label>System</label>
+									<div>
+										<button id="load" class="btn btn-sm btn-warning" type="button">Save</button>
+										<button id="save" class="btn btn-sm btn-warning" type="button">Load</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="row mb-3">
+
+							<div class="col-5">
 								<div class="btn-toolbar">
 									<div class="btn-group btn-group-sm mr-3">
 										<button id="clock-select-button-5" class="btn btn-secondary clock-select-button clock-select-button-5" type="button">5</button>
@@ -137,24 +173,14 @@
 										<button id="clock-select-button-7" class="btn btn-secondary clock-select-button clock-select-button-7" type="button">7</button>
 										<button id="clock-select-button-8" class="btn btn-secondary clock-select-button clock-select-button-8" type="button">8</button>
 									</div>
-									<!-- <div class="btn-group btn-group-sm mr-3">
-									<button id="clock-select-button-None" class="btn btn-secondary clock-select-button clock-select-button-none" type="button">None</button>
-								</div> -->
 								</div>
 							</div>
 
-							<div class="col-6">
-								<div class="max-clocks float-right">
-									<label>Max Clocks</label>
-									<div class="input-group input-group-sm mb-3">
-										<div class="input-group-prepend">
-											<button id="max-clocks-minus" class="btn btn-secondary max-clocks-button" type="button">-</button>
-										</div>
-										<input id="max-clocks" type="text" value="8" readonly />
-										<div class="input-group-append">
-											<button id="max-clocks-plus" class="btn btn-secondary max-clocks-button" type="button">+</button>
-										</div>
-									</div>
+							<div class="col-3"></div>
+
+							<div class="col-4">
+								<div class="float-right">
+									<button id="reset" class="btn btn-sm btn-danger" type="button">Reset</button>
 								</div>
 							</div>
 
@@ -163,426 +189,515 @@
 						<!-- tab panel -->
 						<div class="tab-navigation">
 
-							<!-- nav pills row -->
-							<ul id="pills-tab" class="nav nav-pills mb-3" role="tablist">
+							<!-- nav row -->
+							<ul id="nav-tab" class="nav nav-tabs mb-3" role="tablist">
 								<li class="nav-item">
-									<a id="pill-clock-settings" class="nav-link active" data-toggle="pill" href="#clock-settings-tab" role="tab">Clock settings</a>
+									<a id="clock-settings" class="nav-link active" href="#clock-settings-tab" data-toggle="tab" role="tab">Clock settings</a>
 								</li>
 								<li class="nav-item">
-									<a id="pill-display-settings" class="nav-link" data-toggle="pill" href="#display-settings-tab" role="tab">Display settings</a>
+									<a id="display-settings" class="nav-link" href="#display-settings-tab" data-toggle="tab" role="tab">Display settings</a>
+								</li>
+								<li class="nav-item">
+									<a id="display-more-settings" class="nav-link advanced-option" href="#more-display-settings-tab" data-toggle="tab" role="tab">More display settings</a>
 								</li>
 							</ul>
 
-							<div id="pills-tab-content" class="tab-content">
-								<!-- clockSettings tab -->
-								<div id="clock-settings-tab" class="tab-pane fade show active" role="tabpanel">
-
-									<!-- timezone selector -->
-									<div class="row mb-2">
-										<div class="col">
-											Timezone
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;Show all
-													</div>
-												</div>
-												<select id="timezone-select" class="custom-select"></select>
-											</div>
-
-										</div>
-									</div>
-
-									<!-- toggles for 12/24hr show seconds and blink/numbers for -->
-									<div class="row mb-2">
-
-										<!-- 12/24hr dropdown -->
-										<div class="col">
-											12/24hr
-											<div>
-												<select id="ampm" class="custom-select">
-													<option value="null" selected hidden>Select hour format</option>
-													<option value="12hr">12 hour</option>
-													<option value="24hr">24 hour</option>
-												</select>
-											</div>
-										</div>
-
-										<!-- number/blink seconds dropdown -->
-										<div class="col">
-											Second display
-											<div>
-												<select id="show-seconds" class="custom-select">
-													<option value="null" selected hidden>Select second format</option>
-													<option value="none">No seconds</option>
-													<option value="number">Numbers</option>
-													<option value="blink">Blink separator</option>
-												</select>
-											</div>
-										</div>
-
-										<!-- Numbering System -->
-										<div class="col-4">
-											Numbering System
-											<div>
-												<select id="number-system" class="custom-select">
-													<option value="arab">arab</option>
-													<option value="arabext">arabext</option>
-													<option value="bali">bali</option>
-													<option value="beng">beng</option>
-													<option value="deva">deva</option>
-													<option value="fullwide">fullwide</option>
-													<option value="gujr">gujr</option>
-													<option value="guru">guru</option>
-													<option value="hanidec">hanidec</option>
-													<option value="khmr">khmr</option>
-													<option value="knda">knda</option>
-													<option value="laoo">laoo</option>
-													<option value="latn">latn</option>
-													<option value="limb">limb</option>
-													<option value="mlym">mlym</option>
-													<option value="mong">mong</option>
-													<option value="mymr">mymr</option>
-													<option value="orya">orya</option>
-													<option value="tamldec">tamldec</option>
-													<option value="telu">telu</option>
-													<option value="thai">thai</option>
-													<option value="tibt">tibt</option>
-												</select>
-											</div>
-										</div>
-
-									</div>
-
-									<!-- Clock heading (city/country/etc.) -->
-									<div class="row mb-2">
-										<div class="col">
-											Clock title
-											<div>
-												<select id="clock-title-select" class="custom-select">
-													<option value="null" selected hidden>Select title type</option>
-													<option value="short">Short name</option>
-													<option value="city">City</option>
-													<option value="country">Country</option>
-													<option value="timezone">Timezone</option>
-													<option value="custom">Custom</option>
-												</select>
-											</div>
-										</div>
-									</div>
-
-									<!-- Custom clock heading  -->
-									<div id="custom-clock-title-select-row" class="row mb-2 d-none">
-										<div class="col">
-											Custom title
-											<div class="input-group">
-												<input id="custom-clock-title-select" type="text" placeholder="e.g. My Hometown" class="form-control">
-												<div class="input-group-append">
-													<button id="custom-clock-title-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Date format -->
-									<div class="row mb-2">
-										<div class="col">
-											Date format
-											<div class="input-group">
-												<select id="date-format-select" class="custom-select">
-													<option value="null" selected hidden>Select date format</option>
-													<option value="none">No date</option>
-													<option value="short">Short date</option>
-													<option value="shortday">Short date with day</option>
-													<option value="long">Long date</option>
-													<option value="custom">Custom</option>
-												</select>
-											</div>
-										</div>
-									</div>
-
-									<!-- Custom date format -->
-									<div id="custom-date-format-select-row" class="row mb-2 d-none">
-										<div class="col">
-											Custom date format
-											<div class="input-group">
-												<input id="custom-date-format-select" type="text" placeholder="e.g. dd/LLL/y" class="form-control">
-												<div class="input-group-append">
-													<button id="custom-date-format-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Date locale -->
-									<div class="row mb-2">
-										<div class="col">
-											Date locale
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="all-common-locale" type="checkbox" checked="checked">&nbsp;Show all
-													</div>
-												</div>
-												<select id="locale-select" class="custom-select"></select>
-											</div>
-										</div>
-									</div>
-
-								</div>
-
-								<!-- generalSettings tab -->
-								<div id="display-settings-tab" class="tab-pane fade" role="tabpanel">
-
-									<!-- Theme select -->
-									<div class="row mb-2">
-										<div class="col">
-											Theme
-											<select class="custom-select" id="themeSelect">
-												<option selected hidden>Select theme</option>
-												<option value="none">None</option>
-												<option value="theme_coral">Coral</option>
-												<option value="theme_digital">Digital</option>
-												<option value="theme_enterprise">Enterprise</option>
-												<option value="theme_indigofera">Indigofera</option>
-												<option value="theme_kokiri">Kokiri</option>
-												<option value="theme_lcd">LCD</option>
-												<option value="theme_lega">Lega</option>
-												<option value="theme_rainbow">Rainbow</option>
-											</select>
-										</div>
-
-										<!-- <div class="col-4">
-										<div>&nbsp;</div>
-										<button id="reset-style-button" class="btn btn-danger reset-button float-right" type="button">Reset all</button>
-									</div> -->
-
-									</div>
-
-									<div class="row mb-2">
-										<div class="col-7 pr-3">
-											Clock title font
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<button id="title-font-bold" class="btn btn-secondary font-button" type="button">B</button>
-													<button id="title-font-italic" class="btn btn-secondary font-button" type="button">I</button>
-													<button id="title-font-underline" class="btn btn-secondary font-button" type="button">U</button>
-												</div>
-												<select id="title-font-family" class="custom-select font-family">
-													<option value="null" selected hidden>Select font</option>
-
-													<option value="Arial">Arial</option>
-													<option value="Times New Roman">Times New Roman</option>
-													<option value="Digital-7">Digital-7</option>
-													<optgroup label="External Fonts">
-														<option class="google-font" value="Codystar">Codystar</option>
-														<option class="google-font" value="Doppio One">Doppio One</option>
-														<option class="google-font" value="Faster One">Faster One</option>
-														<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
-														<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
-														<option class="google-font" value="Nova Mono">Nova Mono</option>
-														<option class="google-font" value="Orbitron">Orbitron</option>
-														<option class="google-font" value="Press Start 2P">Press Start 2P</option>
-														<option class="google-font" value="Raleway Dots">Raleway Dots</option>
-														<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
-														<option class="google-font" value="Saira">Saira</option>
-														<option class="google-font" value="Syncopate">Syncopate</option>
-														<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
-														<option class="google-font" value="VT323">VT323</option>
-														<option class="google-font" value="Wallpoet">Wallpoet</option>
-													</optgroup>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-2 pl-0 pr-0">
-											Size
-											<input id="title-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="14" />
-										</div>
-
-										<div class="col-3 pl-1">Color
-											<div id="title-font-color" class="input-group colorpicker-component cp">
-												<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row mb-2">
-										<div class="col-7 pr-3">
-											Time font
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<button id="time-font-bold" class="btn btn-secondary font-button" type="button">B</button>
-													<button id="time-font-italic" class="btn btn-secondary font-button" type="button">I</button>
-													<button id="time-font-underline" class="btn btn-secondary font-button" type="button">U</button>
-												</div>
-												<select id="time-font-family" class="custom-select font-family">
-													<option value="null" selected hidden>Select font</option>
-
-													<option value="Arial">Arial</option>
-													<option value="Times New Roman">Times New Roman</option>
-													<option value="Digital-7">Digital-7</option>
-													<optgroup label="External Fonts">
-														<option class="google-font" value="Codystar">Codystar</option>
-														<option class="google-font" value="Doppio One">Doppio One</option>
-														<option class="google-font" value="Faster One">Faster One</option>
-														<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
-														<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
-														<option class="google-font" value="Nova Mono">Nova Mono</option>
-														<option class="google-font" value="Orbitron">Orbitron</option>
-														<option class="google-font" value="Press Start 2P">Press Start 2P</option>
-														<option class="google-font" value="Raleway Dots">Raleway Dots</option>
-														<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
-														<option class="google-font" value="Saira">Saira</option>
-														<option class="google-font" value="Syncopate">Syncopate</option>
-														<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
-														<option class="google-font" value="VT323">VT323</option>
-														<option class="google-font" value="Wallpoet">Wallpoet</option>
-													</optgroup>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-2 pl-0 pr-0">
-											Size
-											<input id="time-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="18" />
-										</div>
-
-										<div class="col-3 pl-1">Color
-											<div id="time-font-color" class="input-group colorpicker-component cp">
-												<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-
-									</div>
-
-									<div class="row mb-2">
-										<div class="col-7 pr-3">
-											Date font
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<button id="date-font-bold" class="btn btn-secondary font-button" type="button">B</button>
-													<button id="date-font-italic" class="btn btn-secondary font-button" type="button">I</button>
-													<button id="date-font-underline" class="btn btn-secondary font-button" type="button">U</button>
-												</div>
-												<select id="date-font-family" class="custom-select font-family">
-													<option value="null" selected hidden>Select font</option>
-
-													<option value="Arial">Arial</option>
-													<option value="Times New Roman">Times New Roman</option>
-													<option value="Digital-7">Digital-7</option>
-													<optgroup label="External Fonts">
-														<option class="google-font" value="Codystar">Codystar</option>
-														<option class="google-font" value="Doppio One">Doppio One</option>
-														<option class="google-font" value="Faster One">Faster One</option>
-														<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
-														<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
-														<option class="google-font" value="Nova Mono">Nova Mono</option>
-														<option class="google-font" value="Orbitron">Orbitron</option>
-														<option class="google-font" value="Press Start 2P">Press Start 2P</option>
-														<option class="google-font" value="Raleway Dots">Raleway Dots</option>
-														<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
-														<option class="google-font" value="Saira">Saira</option>
-														<option class="google-font" value="Syncopate">Syncopate</option>
-														<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
-														<option class="google-font" value="VT323">VT323</option>
-														<option class="google-font" value="Wallpoet">Wallpoet</option>
-													</optgroup>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-2 pl-0 pr-0">
-											Size
-											<input id="date-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="12" />
-										</div>
-
-										<div class="col-3 pl-1">Color
-											<div id="date-font-color" class="input-group colorpicker-component cp">
-												<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row mb-2">
-										<div class="col">
-											Background
-											<div id="clock-background-color" class="input-group colorpicker-component cp">
-												<input type="text" value="#ffffff" class="form-control color-value" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row mb-2">
-										<div class="col">
-											Highlight non-local dates
-											<div id="highlight-nonlocal-dates-color" class="input-group colorpicker-component cp">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="highlight-nonlocal-dates" type="checkbox">
-													</div>
-												</div>
-												<input type="text" value="#000000" class="form-control color-value" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-									<div class="row mb-2">
-										<div class="col">
-											Highlight non-business hours
-											<div id="highlight-nonbusiness-hours-color" class="input-group colorpicker-component cp">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<input id="highlight-nonbusiness-hours" type="checkbox">
-													</div>
-												</div>
-												<input type="text" value="#000000" class="form-control color-value" />
-												<div class="input-group-append">
-													<span class="input-group-text input-group-addon">
-														<i></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
 						</div>
 
+						<div id="tab-content" class="tab-content">
+							<!-- Clock settings tab -->
+							<div id="clock-settings-tab" class="tab-pane fade show active" role="tabpanel">
 
+								<!-- timezone selector -->
+								<div class="row mb-2">
+									<div class="col">
+										Timezone
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="all-common-timezone" type="checkbox" checked="checked">&nbsp;Show all
+												</div>
+											</div>
+											<select id="timezone-select" class="custom-select"></select>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- Clock heading (city/country/etc.) -->
+								<div class="row mb-2">
+									<div class="col">
+										Clock title
+										<div>
+											<select id="clock-title-select" class="custom-select">
+												<option value="null" selected hidden>Select title type</option>
+												<option value="short">Short name</option>
+												<option value="city">City</option>
+												<option value="country">Country</option>
+												<option value="timezone">Timezone</option>
+												<option value="custom">Custom</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom clock heading  -->
+								<div id="custom-clock-title-select-row" class="row mb-2 d-none">
+									<div class="col">
+										Custom title
+										<div class="input-group">
+											<input id="custom-clock-title-select" type="text" placeholder="e.g. My Hometown" class="form-control">
+											<div class="input-group-append">
+												<button id="custom-clock-title-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Date format -->
+								<div class="row mb-2">
+									<div class="col">
+										Date format
+										<div class="input-group">
+											<select id="date-format-select" class="custom-select">
+												<option value="null" selected hidden>Select date format</option>
+												<option value="none">No date</option>
+												<option value="short">Short date</option>
+												<option value="shortday">Short date with day</option>
+												<option value="long">Long date</option>
+												<option value="custom">Custom</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom date format -->
+								<div id="custom-date-format-select-row" class="row mb-2 d-none">
+									<div class="col">
+										Custom date format
+										<div class="input-group">
+											<input id="custom-date-format-select" type="text" placeholder="e.g. dd/LLL/y" class="form-control">
+											<div class="input-group-append">
+												<button id="custom-date-format-select-submit" class="btn btn-outline-secondary set-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- toggles for 12/24hr show seconds and blink/numbers for -->
+								<div class="row mb-2 advanced-option">
+
+									<!-- 12/24hr dropdown -->
+									<div class="col">
+										12/24hr
+										<div>
+											<select id="ampm" class="custom-select">
+												<option value="null" selected hidden>Select hour format</option>
+												<option value="12hr">12 hour</option>
+												<option value="24hr">24 hour</option>
+											</select>
+										</div>
+									</div>
+
+									<!-- number/blink seconds dropdown -->
+									<div class="col">
+										Second display
+										<div>
+											<select id="show-seconds" class="custom-select">
+												<option value="null" selected hidden>Select second format</option>
+												<option value="none">No seconds</option>
+												<option value="number">Numbers</option>
+												<option value="blink">Blink separator</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Numbering System -->
+								<div class="row mb-2 advanced-option">
+									<div class="col">
+										Numbering System
+										<div>
+											<select id="number-system" class="custom-select">
+												<option value="null" selected hidden>Select numbering system</option>
+												<option value="latn">Latin (Default)</option>
+												<option value="arab">Arabic</option>
+												<option value="arabext">Arabic (extended)</option>
+												<option value="bali">Balinese</option>
+												<option value="beng">Bengali</option>
+												<option value="deva">Devanagari (Nagari)</option>
+												<option value="fullwide">Fullwide</option>
+												<option value="gujr">Gujarati</option>
+												<option value="guru">Gurmukhi</option>
+												<option value="hanidec">Han (Hanzi, Kanji, Hanja)</option>
+												<option value="khmr">Khmer</option>
+												<option value="knda">Kannada</option>
+												<option value="laoo">Lao</option>
+												<option value="limb">Limbu</option>
+												<option value="mlym">Malayalam</option>
+												<option value="mong">Mongolian</option>
+												<option value="mymr">Myanmar (Burmese)</option>
+												<option value="orya">Oriya</option>
+												<option value="tamldec">Tamil</option>
+												<option value="telu">Telugu</option>
+												<option value="thai">Thai</option>
+												<option value="tibt">Tibetan</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+
+								<!-- Date locale -->
+								<div class="row mb-2 advanced-option">
+									<div class="col">
+										Date locale
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="all-common-locale" type="checkbox" checked="checked">&nbsp;Show all
+												</div>
+											</div>
+											<select id="locale-select" class="custom-select"></select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Calendar System -->
+								<div class="row mb-2 advanced-option">
+									<div class="col">
+										Calendar System
+										<div>
+											<select id="calendar-system" class="custom-select">
+												<option value="null" selected hidden>Select calendar system</option>
+												<option value="gregory">Gregorian (Default)</option>
+												<option value="buddhist">Buddhist</option>
+												<option value="chinese">Chinese</option>
+												<option value="coptic">Coptic</option>
+												<option value="ethioaa">Ethiopian</option>
+												<option value="ethiopic">Ethiopian (Coptic)</option>
+												<option value="hebrew">Hebrew</option>
+												<option value="indian">Indian</option>
+												<option value="islamic">Islamic</option>
+												<option value="islamicc">Islamicc</option>
+												<option value="japanese">Japanese</option>
+												<option value="persian">Persian</option>
+												<option value="roc">Republic of China (Taiwan)</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Display settings tab -->
+							<div id="display-settings-tab" class="tab-pane fade" role="tabpanel">
+
+								<!-- Theme select -->
+								<div class="row mb-2">
+									<div class="col">
+										Theme
+										<select class="custom-select" id="themeSelect">
+											<option selected hidden>Select theme</option>
+											<option value="none">None</option>
+											<option value="theme_coral">Coral</option>
+											<option value="theme_digital">Digital</option>
+											<option value="theme_enterprise">Enterprise</option>
+											<option value="theme_indigofera">Indigofera</option>
+											<option value="theme_kokiri">Kokiri</option>
+											<option value="theme_lcd">LCD</option>
+											<option value="theme_lega">Lega</option>
+											<option value="theme_rainbow">Rainbow</option>
+										</select>
+									</div>
+
+									<!-- <div class="col-4">
+<div>&nbsp;</div>
+<button id="reset-style-button" class="btn btn-danger reset-button float-right" type="button">Reset all</button>
+</div> -->
+
+								</div>
+
+								<div class="row mb-2 advanced-option">
+									<div class="col-7 pr-3">
+										Clock title font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="title-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="title-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="title-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="title-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-2 pl-0 pr-0">
+										Size
+										<input id="title-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="14" />
+									</div>
+
+									<div class="col-3 pl-1">Color
+										<div id="title-font-color" class="input-group colorpicker-component cp">
+											<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2 advanced-option">
+									<div class="col-7 pr-3">
+										Time font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="time-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="time-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="time-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="time-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-2 pl-0 pr-0">
+										Size
+										<input id="time-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="18" />
+									</div>
+
+									<div class="col-3 pl-1">Color
+										<div id="time-font-color" class="input-group colorpicker-component cp">
+											<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row mb-2 advanced-option">
+									<div class="col-7 pr-3">
+										Date font
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button id="date-font-bold" class="btn btn-secondary font-button" type="button">B</button>
+												<button id="date-font-italic" class="btn btn-secondary font-button" type="button">I</button>
+												<button id="date-font-underline" class="btn btn-secondary font-button" type="button">U</button>
+											</div>
+											<select id="date-font-family" class="custom-select font-family">
+												<option value="null" selected hidden>Select font</option>
+
+												<option value="Arial">Arial</option>
+												<option value="Times New Roman">Times New Roman</option>
+												<option value="Digital-7">Digital-7</option>
+												<optgroup label="External Fonts">
+													<option class="google-font" value="Codystar">Codystar</option>
+													<option class="google-font" value="Doppio One">Doppio One</option>
+													<option class="google-font" value="Faster One">Faster One</option>
+													<option class="google-font" value="Libre Barcode 128 Text">Libre Barcode 128 Text</option>
+													<option class="google-font" value="Nanum Gothic Coding">Nanum Gothic Coding</option>
+													<option class="google-font" value="Nova Mono">Nova Mono</option>
+													<option class="google-font" value="Orbitron">Orbitron</option>
+													<option class="google-font" value="Press Start 2P">Press Start 2P</option>
+													<option class="google-font" value="Raleway Dots">Raleway Dots</option>
+													<option class="google-font" value="Reenie Beanie">Reenie Beanie</option>
+													<option class="google-font" value="Saira">Saira</option>
+													<option class="google-font" value="Syncopate">Syncopate</option>
+													<option class="google-font" value="Ubuntu Mono">Ubuntu Mono</option>
+													<option class="google-font" value="VT323">VT323</option>
+													<option class="google-font" value="Wallpoet">Wallpoet</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-2 pl-0 pr-0">
+										Size
+										<input id="date-font-size" class="pl-1 pr-1 form-control font-size" type="number" min="1" value="12" />
+									</div>
+
+									<div class="col-3 pl-1">Color
+										<div id="date-font-color" class="input-group colorpicker-component cp">
+											<input type="text" value="#000000" class="form-control color-value pl-0 pr-0" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2 advanced-option">
+									<div class="col">
+										Background
+										<div id="clock-background-color" class="input-group colorpicker-component cp">
+											<input type="text" value="#ffffff" class="form-control color-value" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- More display settings tab -->
+							<div id="more-display-settings-tab" class="tab-pane fade" role="tabpanel">
+								<div class="advanced-option">
+
+								<!-- Custom title css  -->
+								<div id="clock-title-extra-css-row" class="row mb-2">
+									<div class="col">
+										Custom title extra CSS
+										<div class="input-group">
+											<input id="clock-title-extra-css" type="text" placeholder='e.g. {"font-family":"courier"}' class="form-control">
+											<div class="input-group-append">
+												<button id="clock-title-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom time css  -->
+								<div id="clock-time-extra-css-row" class="row mb-2">
+									<div class="col">
+										Custom time extra CSS
+										<div class="input-group">
+											<input id="clock-time-extra-css" type="text" placeholder='e.g. {"text-decoration": "underline overline dotted red"}' class="form-control">
+											<div class="input-group-append">
+												<button id="clock-time-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom date css  -->
+								<div id="clock-date-extra-css-row" class="row mb-2">
+									<div class="col">
+										Custom date extra CSS
+										<div class="input-group">
+											<input id="clock-date-extra-css" type="text" placeholder='e.g. {"color": "red", "background-color": "black"}' class="form-control">
+											<div class="input-group-append">
+												<button id="clock-date-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Custom date css  -->
+								<div id="clock-all-extra-css-row" class="row mb-2">
+									<div class="col">
+										Custom whole-clock extra CSS
+										<div class="input-group">
+											<input id="clock-all-extra-css" type="text" placeholder='e.g. {"background-color": "coral"}' class="form-control">
+											<div class="input-group-append">
+												<button id="clock-all-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mb-2">
+									<div class="col">
+										Highlight non-local dates
+										<div id="highlight-nonlocal-dates-color" class="input-group colorpicker-component cp">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="highlight-nonlocal-dates" type="checkbox">
+												</div>
+											</div>
+											<input type="text" value="#000000" class="form-control color-value" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="row mb-2">
+									<div class="col">
+										Highlight non-business hours
+										<div id="highlight-nonbusiness-hours-color" class="input-group colorpicker-component cp">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<input id="highlight-nonbusiness-hours" type="checkbox">
+												</div>
+											</div>
+											<input type="text" value="#000000" class="form-control color-value" />
+											<div class="input-group-append">
+												<span class="input-group-text input-group-addon">
+													<i></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end modal -->
+		<!-- end modal -->
 
 </body>
 

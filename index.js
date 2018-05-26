@@ -9,14 +9,14 @@ $(function () {
     var worldClocks = simpleWorldClock.worldClocks;
     var globalSettings = simpleWorldClock.globalSettings;
 
-    console.log(worldClocks);
-
     //init timezone selector menus
     var allTimezones = getClockMenuTemplate(zoneArray, "all");
     var commonTimezones = getClockMenuTemplate(zoneArray, "common");
 
     var allLocales = getLocaleMenuTemplate(localesArray, "all");
     var commonLocales = getLocaleMenuTemplate(localesArray, "common")
+
+    $('.advanced-option').hide()
 
     //init maxClocks selector
     $('#max-clocks').attr("value", globalSettings.maxClocks)
@@ -47,25 +47,20 @@ $(function () {
         updateClockSelection(worldClocks, globalSettings);
     });
 
+    //Advanced mode
+    $('#advanced-mode').click(function () {
+        $('.advanced-option').toggle();
+    });
+
     //Preview mode
-    $('.preview-icon').click(function () {
-        $('#settings-modal-header h5 .preview-mode').toggle();
+    //$('#preview-mode').click(function () {
+    $('#preview-mode').hover(function () {
+        $('#settings-modal-header h5').toggleClass('invisible');
         $('#settings-inner-body').toggleClass('invisible');
         $('#settings-modal-header').toggleClass('no-border');
         $('.modal-backdrop').toggleClass('transparent-background');
         $('#settings-modal-content').toggleClass('transparent-background');
     });
-
-
-    // $('.preview').hover(
-    //     function() {
-    //         $('.modal-dialog').addClass('modal-dialog-move');
-    //     }, 
-    //     function() {
-    //         $('#settings-modal-body').collapse('show'); 
-    //     }
-    // );
-
 
     //CLOCK SETTINGS LISTENERS
 
@@ -155,11 +150,20 @@ $(function () {
         });
     });
 
-    //Show seconds
+    //Number system
     $('#number-system').change(function () {
         $.each(worldClocks, function (index, obj) {
             if (obj.selected == true) {
                 obj.settings.numberSystem = $('#number-system').val();
+            }
+        });
+    });
+
+    //Calendar system
+    $('#calendar-system').change(function () {
+        $.each(worldClocks, function (index, obj) {
+            if (obj.selected == true) {
+                obj.settings.calendarSystem = $('#calendar-system').val();
             }
         });
     });
@@ -198,13 +202,13 @@ $(function () {
     });
 
     //Set locale for clock
-        $('#locale-select').change(function () {
-            $.each(worldClocks, function (index, obj) {
-                if (obj.selected == true) {
-                    obj.settings.locale = $('#locale-select').val();
-                }
-            });
+    $('#locale-select').change(function () {
+        $.each(worldClocks, function (index, obj) {
+            if (obj.selected == true) {
+                obj.settings.locale = $('#locale-select').val();
+            }
         });
+    });
 
     //Select date format
     $('#date-format-select').change(function () {
@@ -249,8 +253,6 @@ $(function () {
         $('#highlight-nonbusiness-hours').prop('checked', false);
     });
 
-    //Clock select buttons are already handled in Clock Settings
-
     //Bold/Italic/Underline text
     $('.font-button').click(function () {
         var selector = /(.*)-font-(.*)/.exec(this.id.toLowerCase()); //array will be [0] = clocktitlefontbold, [1] = title, [2] = bold
@@ -263,7 +265,6 @@ $(function () {
         });
         updateClockStyle(worldClocks);
     });
-
 
     //Font family
     $('.font-family').change(function () {
@@ -296,14 +297,6 @@ $(function () {
         useAlpha: false
     });
 
-    // $('.colorpicker').click(function() {
-    //     $('.colorpicker:not(#' + this.id +')').colorpicker('hide');
-    // });
-
-    // $('*:not(.colorpicker)').click(function() {
-    //     $('.colorpicker').colorpicker('hide');
-    // });
-
     $('.cp').on('changeColor.colorpicker', function (event) {
         var selector = this.id.split('-');
         var selectElement = $(this);
@@ -321,6 +314,28 @@ $(function () {
                 }
             }
         });
+        updateClockStyle(worldClocks);
+    });
+
+    // MORE DISPLY SETTINGS LISTENERS
+
+    //Custom title 'set' button
+    $('.css-submit-button').click(function () {
+        var selector = /clock-(.*)-extra-css-submit/.exec(this.id.toLowerCase()); //array will be [0] = clocktitlefontbold, [1] = title, [2] = bold
+
+        $.each(worldClocks, function (index, obj) {
+            if (obj.selected == true) {
+                cssVal = $('#clock-' + selector[1] + '-extra-css').val();
+                if (cssVal == "") { cssVal = "{}"; }
+
+                cssObj = JSON.parse(cssVal);
+
+                if (selector[1] == "all") { obj.settings.extraCSS = cssObj; }
+                else { obj.settings[selector[1]].extraCSS = cssObj; }
+            }
+        });
+        console.log(selector[1]);
+        console.log(cssVal);
         updateClockStyle(worldClocks);
     });
 
@@ -510,6 +525,9 @@ function updateClockStyle(worldClocks) {
             'color': obj.settings.title.fontColor
         });
 
+        //title-css
+        $('#clock-title-' + obj.id).css(obj.settings.title.extraCSS);
+
 
         //time-biu
         if (obj.settings.time.bold == true) {
@@ -547,7 +565,8 @@ function updateClockStyle(worldClocks) {
             'color': obj.settings.time.fontColor
         });
 
-
+        //time-css
+        $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
 
         //date-biu
         if (obj.settings.date.bold == true) {
@@ -585,10 +604,16 @@ function updateClockStyle(worldClocks) {
             'color': obj.settings.date.fontColor
         });
 
+        //date-css
+        $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
+
         //background-color
         $('#clock-' + obj.id).css({
             'background-color': obj.settings.backgroundColor
         });
+
+        //clock-css
+        $('#clock-' + obj.id).css(obj.settings.extraCSS);
 
         //nonlocaldates
         if (obj.settings.highlightNonLocalDates == true) {
@@ -721,16 +746,24 @@ function getDateFormat(ldt, clock) {
             date = "";
             break;
         case "short":
-            date = ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_MED);
+            date = ldt.setLocale(clock.settings.locale).reconfigure({
+                outputCalendar: clock.settings.calendarSystem
+            }).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "shortday":
-            date = ldt.weekdayShort + ", " + ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_MED);
+            date = ldt.weekdayShort + ", " + ldt.setLocale(clock.settings.locale).reconfigure({
+                outputCalendar: clock.settings.calendarSystem
+            }).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "long":
-            date = ldt.setLocale(clock.settings.locale).toLocaleString(luxon.DateTime.DATE_HUGE);
+            date = ldt.setLocale(clock.settings.locale).reconfigure({
+                outputCalendar: clock.settings.calendarSystem
+            }).toLocaleString(luxon.DateTime.DATE_HUGE);
             break;
         default:
-            date = ldt.setLocale(clock.settings.locale).toFormat(clock.settings.dateFormat);
+            date = ldt.setLocale(clock.settings.locale).reconfigure({
+                outputCalendar: clock.settings.calendarSystem
+            }).toFormat(clock.settings.dateFormat);
             break;
     }
     return date;
@@ -792,7 +825,8 @@ function getDefaultClock() {
                 fontColor: "#000000",
                 bold: false,
                 italic: false,
-                underline: false
+                underline: false,
+                extraCSS: {}
             },
             time: {
                 fontSize: "18",
@@ -800,7 +834,8 @@ function getDefaultClock() {
                 fontColor: "#000000",
                 bold: false,
                 italic: false,
-                underline: false
+                underline: false,
+                extraCSS: {}
             },
             date: {
                 fontSize: "12",
@@ -808,11 +843,14 @@ function getDefaultClock() {
                 fontColor: "#000000",
                 bold: false,
                 italic: false,
-                underline: false
+                underline: false,
+                extraCSS: {}
             },
             blinkOn: true,
+            calendarSystem: "gregory",
             dateFormat: "shortday",
             display: true,
+            extraCSS: {},
             highlightNonLocalDates: false,
             highlightNonlocalDatesColor: "#000000",
             highlightNonbusinessHours: false,
