@@ -7226,7 +7226,7 @@
 	}
 ];
 
-var localesArray = [
+var localeArray = [
 	{
 		"code": "af-NA",
 		"description": "Afrikaans (Namibia)",

@@ -13,8 +13,8 @@ $(function () {
     var allTimezones = getClockMenuTemplate(zoneArray, "all");
     var commonTimezones = getClockMenuTemplate(zoneArray, "common");
 
-    var allLocales = getLocaleMenuTemplate(localesArray, "all");
-    var commonLocales = getLocaleMenuTemplate(localesArray, "common")
+    var allLocales = getLocaleMenuTemplate(localeArray, "all");
+    var commonLocales = getLocaleMenuTemplate(localeArray, "common")
 
     $('.advanced-option').hide()
 
@@ -50,6 +50,7 @@ $(function () {
     //Advanced mode
     $('#advanced-mode').click(function () {
         $('.advanced-option').toggle();
+        $('#advanced-mode svg').toggleClass('svg-red')
     });
 
     //Preview mode
@@ -87,10 +88,50 @@ $(function () {
     });
 
     //Reset all clock(s)
-    $('#reset-clocks-button').click(function () {
-        worldClocks = getDefaultClocks();
-        updateClocks(worldClocks);
-        updateClockSelection(worldClocks, globalSettings);
+    $('#reset-button').click(function (e) {
+        e.preventDefault();
+        if (window.confirm("Will reset all time-zones to default, and remove all styles. Are you sure?")) {
+            worldClocks = getDefaultClocks();
+            updateClocks(worldClocks);
+            updateClockSelection(worldClocks, globalSettings);
+            $('*:not(iframe)').removeAttr('style');
+            $('#settings-modal').modal('hide');
+        }
+    });
+
+    //Save clock settings
+    $('#save-button').click(function (e) {
+        var text = JSON.stringify(simpleWorldClock);
+        var a = document.createElement('a');
+        a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(text));
+        a.setAttribute('download', "simpleworldclock_settings.json");
+        a.click()
+    });
+
+    $('#load-file').change(function () {
+        if (!window.FileReader) {
+            return alert('FileReader API is not supported by your browser.');
+        }
+        var $i = $('#load-file'), // Put file input ID here
+            input = $i[0]; // Getting the element from jQuery
+        if (input.files && input.files[0]) {
+            file = input.files[0]; // The file
+            fr = new FileReader(); // FileReader instance
+            fr.onload = function () {
+                // Do stuff on onload, use fr.result for contents of file
+                //alert(file);
+                simpleWorldClock = JSON.parse(fr.result);
+                worldClocks = simpleWorldClock.worldClocks;
+                globalSettings = simpleWorldClock.globalSettings;
+                updateClocks(worldClocks);
+                updateClockStyle(worldClocks, globalSettings);
+            };
+            fr.readAsText(file);
+            //fr.readAsDataURL(file);
+        } else {
+            // Handle errors here
+            alert("File not selected or browser incompatible.")
+        }
     });
 
     //Select clock(s)
@@ -205,8 +246,9 @@ $(function () {
     $('#locale-select').change(function () {
         $.each(worldClocks, function (index, obj) {
             if (obj.selected == true) {
-                obj.settings.locale = $('#locale-select').val();
+                obj.localeData = getLocale($('#locale-select').val());
             }
+            console.log(obj.localeData)
         });
     });
 
@@ -239,18 +281,6 @@ $(function () {
     //Select theme
     $('#theme-select').change(function () {
         $('head').append('<link rel="stylesheet" href="' + $('#theme-select').val() + '.css" type="text/css" id="currentTheme" />');
-    });
-
-    //Reset
-    $('#resetStyleButton').click(function () {
-        $.each(worldClocks, function (index, obj) {
-            obj.selected = false;
-        });
-        updateClockSelection(worldClocks, globalSettings);
-        $('#themeSelect').val("none");
-        $('.colorpicker').val("#000000");
-        $('#highlight-nonlocal-dates').prop('checked', false);
-        $('#highlight-nonbusiness-hours').prop('checked', false);
     });
 
     //Bold/Italic/Underline text
@@ -326,12 +356,17 @@ $(function () {
         $.each(worldClocks, function (index, obj) {
             if (obj.selected == true) {
                 cssVal = $('#clock-' + selector[1] + '-extra-css').val();
-                if (cssVal == "") { cssVal = "{}"; }
+                if (cssVal == "") {
+                    cssVal = "{}";
+                }
 
                 cssObj = JSON.parse(cssVal);
 
-                if (selector[1] == "all") { obj.settings.extraCSS = cssObj; }
-                else { obj.settings[selector[1]].extraCSS = cssObj; }
+                if (selector[1] == "all") {
+                    obj.settings.extraCSS = cssObj;
+                } else {
+                    obj.settings[selector[1]].extraCSS = cssObj;
+                }
             }
         });
         console.log(selector[1]);
@@ -400,7 +435,7 @@ function updateClocks(worldClocks) {
         var localDate = luxon.DateTime.fromISO(localdt.toISODate());
         var homeDate = luxon.DateTime.fromISO(homedt.toISODate());
 
-        localdt.setLocale('en-US');
+        localdt.setLocale(element.localeData.code);
 
         var clockId = "#clock-" + element.id;
         var clockTitleId = "#clock-title-" + element.id;
@@ -642,6 +677,7 @@ function updateClockStyle(worldClocks) {
 
 function updateClockSelection(worldClocks, globalSettings) {
     var selectCount = 0;
+    var selector = ['title', 'time', 'date'];
     var clock = {};
 
     $('.clock-select-button').removeClass('btn-primary').addClass('btn-secondary');
@@ -658,6 +694,8 @@ function updateClockSelection(worldClocks, globalSettings) {
 
     //if only one clock is selected
     if (selectCount == 1) {
+        //clock settings tab
+        //set timzone
         if ((clock.tzData.common == "true") && ($('#all-common-timezone').prop("checked") == true)) {
             $('#all-common-timezone').prop("checked", false);
             $('#all-common-timezone').trigger("change");
@@ -666,25 +704,104 @@ function updateClockSelection(worldClocks, globalSettings) {
             $('#all-common-timezone').trigger("change");
         }
         $('#timezone-select').val(clock.tzData.timezone);
-        $('#ampm').val(clock.settings.ampm);
-        $('#show-seconds').val(clock.settings.showSeconds);
         $('#clock-title-select').val(clock.settings.titleFormat);
         $('#date-format-select').val(clock.settings.dateFormat);
+        $('#ampm').val(clock.settings.ampm);
+        $('#show-seconds').val(clock.settings.showSeconds);
+        $('#number-system').val(clock.settings.numberSystem);
+        //set locale
+        if ((clock.localeData.common == "true") && ($('#all-common-locale').prop("checked") == true)) {
+            $('#all-common-locale').prop("checked", false);
+            $('#all-common-locale').trigger("change");
+        } else if ((clock.localeData.common == "false") && ($('#all-common-locale').prop("checked") == false)) {
+            $('#all-common-locale').prop("checked", true);
+            $('#all-common-locale').trigger("change");
+        }
+        $('#locale-select').val(clock.localeData.code);
+        $('#calendar-system').val(clock.settings.calendarSystem);
+
+        //display settings tab
+        $('#theme-select').val(clock.settings.theme);
+        for (i = 0; i < selector.length; i++) {
+            if (clock.settings[selector[i]].bold == true) {
+                $('#' + selector[i] + '-font-bold').addClass('btn-primary').removeClass('btn-secondary');
+            } else {
+                $('#' + selector[i] + '-font-bold').addClass('btn-secondary').removeClass('btn-primary');
+            }
+
+            if (clock.settings[selector[i]].italic == true) {
+                $('#' + selector[i] + '-font-italic').addClass('btn-primary').removeClass('btn-secondary');
+            } else {
+                $('#' + selector[i] + '-font-italic').addClass('btn-secondary').removeClass('btn-primary');
+            }
+
+            if (clock.settings[selector[i]].underline == true) {
+                $('#' + selector[i] + '-font-underline').addClass('btn-primary').removeClass('btn-secondary');
+            } else {
+                $('#' + selector[i] + '-font-underline').addClass('btn-secondary').removeClass('btn-primary');
+            }
+
+            $('#' + selector[i] + '-font-family').val(clock.settings[selector[i]].fontFamily);
+            $('#' + selector[i] + '-font-size').val(clock.settings[selector[i]].fontSize);
+            $('#' + selector[i] + '-font-color input').val(clock.settings[selector[i]].fontColor);
+            $('#' + selector[i] + '-font-color input').trigger("change");
+        }
+        $('#clock-background-color input').val(clock.settings.backgroundColor);
+        $('#clock-background-color input').trigger("change");
+
+        //more display settings tab
+        for (i = 0; i < selector.length; i++) {
+            if ($.isEmptyObject(clock.settings[selector[i]].extraCSS)) {
+                $('#clock-' + selector[i] + '-extra-css').val('');
+            } else {
+                $('#clock-' + selector[i] + '-extra-css').val(clock.settings[selector[i]].extraCSS);
+            }
+        }
+        $('#clock-all-extra-css').val(clock.settings.extraCSS);
+
+        if (clock.settings.highlightNonLocalDates == true) {
+            $('#highlight-nonlocal-dates').prop("checked", true);
+        } else {
+            $('#highlight-nonlocal-dates').prop("checked", false);
+        }
+        $('#highlight-nonlocal-dates-color input').val(clock.settings.highlightNonlocalDatesColor);
+        $('#highlight-nonlocal-dates-color input').trigger("change");
+
+        if (clock.settings.highlightNonbusinessHours == true) {
+            $('#highlight-nonbusiness-hours').prop("checked", true);
+        } else {
+            $('#highlight-nonbusiness-hours').prop("checked", false);
+        }
+        $('#highlight-nonbusiness-hours-color input').val(clock.settings.highlightNonbusinessHoursColor);
+        $('#highlight-nonbusiness-hours-color input').trigger("change");
     }
     //special case if 0, or if more than 1 clock is selected (generify the inputs)
     else {
         //clock settings tab
         $('all-common-timezone').attr("checked", false);
+        $('#all-common-timezone').trigger("change");
         $('#timezone-select').val('null');
-        $('#ampm').val('null');
-        $('#show-seconds').val('null');
         $('#clock-title-select').val('null');
         $('#date-format-select').val('null');
-        //display settings tab
-        $('.font-family').val('null');
-        $('.colorpicker ').val('Select color');
-    }
+        $('#ampm').val('null');
+        $('#show-seconds').val('null');
+        $('#number-system').val('null');
+        $('#locale-select').val('null');
+        $('#calendar-system').val('null');
 
+        //display settings tab
+        $('#theme-select').val('null');
+        $('.font-button').addClass('btn-secondary').removeClass('btn-primary');
+        $('.font-family').val('null');
+        $('.font-size').val('12');
+        $('.cp input').val('Select color');
+
+        //more display settings tab
+        for (i = 0; i < selector.length; i++) {
+            $('#clock-' + selector[i] + '-extra-css').val('');
+        }
+        $('#clock-all-extra-css').val('');
+    }
 }
 
 function getTitleFormat(clock) {
@@ -746,22 +863,22 @@ function getDateFormat(ldt, clock) {
             date = "";
             break;
         case "short":
-            date = ldt.setLocale(clock.settings.locale).reconfigure({
+            date = ldt.setLocale(clock.localeData.code).reconfigure({
                 outputCalendar: clock.settings.calendarSystem
             }).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "shortday":
-            date = ldt.weekdayShort + ", " + ldt.setLocale(clock.settings.locale).reconfigure({
+            date = ldt.weekdayShort + ", " + ldt.setLocale(clock.localeData.code).reconfigure({
                 outputCalendar: clock.settings.calendarSystem
             }).toLocaleString(luxon.DateTime.DATE_MED);
             break;
         case "long":
-            date = ldt.setLocale(clock.settings.locale).reconfigure({
+            date = ldt.setLocale(clock.localeData.code).reconfigure({
                 outputCalendar: clock.settings.calendarSystem
             }).toLocaleString(luxon.DateTime.DATE_HUGE);
             break;
         default:
-            date = ldt.setLocale(clock.settings.locale).reconfigure({
+            date = ldt.setLocale(clock.localeData.code).reconfigure({
                 outputCalendar: clock.settings.calendarSystem
             }).toFormat(clock.settings.dateFormat);
             break;
@@ -777,6 +894,13 @@ function getTimezone(timezoneString) {
     return $.extend(true, {}, tz[0]); //important to use $.extend to clone the object (rather than create a reference)
 }
 
+//return an array of locale objects (from localeArray)
+function getLocale(localeString) {
+    var loc = localeArray.filter(function (locale) {
+        return locale.code == localeString;
+    });
+    return $.extend(true, {}, loc[0]); //important to use $.extend to clone the object (rather than create a reference)
+}
 
 
 // DEFAULT CLOCK SETUP
@@ -814,6 +938,11 @@ function getDefaultClocks() {
 function getDefaultClock() {
     var defaultSettings = {
         id: "",
+        localeData: {
+            code: "en-US",
+            description: "English (United States)",
+            common: "true"
+        },
         tzData: "",
         selected: false,
         settings: {
@@ -857,13 +986,13 @@ function getDefaultClock() {
             highlightNonbusinessHoursColor: "000000",
             numberSystem: "latn",
             showSeconds: "none",
+            theme: "none",
             titleFormat: "city"
         }
     }
 
     return defaultSettings;
 }
-
 
 // HTML MICRO-TEMPLATES
 
@@ -882,7 +1011,7 @@ function clockTemplate(clock) {
 }
 
 function getClockMenuTemplate(timezoneArray, subset) {
-    var template = `<option selected hidden>Select timezone</option>`;
+    var template = `<option selected hidden value="null">Select timezone</option>`;
     var group = '';
     if (subset == "all") {
         $.each(timezoneArray, function (index, timezone) {
@@ -911,7 +1040,7 @@ function getClockMenuTemplate(timezoneArray, subset) {
 }
 
 function getLocaleMenuTemplate(localeArray, subset) {
-    var template = `<option selected hidden>Select locale</option>`;
+    var template = `<option selected hidden value="null">Select locale</option>`;
     if (subset == "all") {
         $.each(localeArray, function (index, locale) {
             template += `<option value = "${locale.code}">${locale.description}</option>`;

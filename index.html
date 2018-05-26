@@ -152,11 +152,14 @@ L16.79,18.21z" />
 							</div>
 
 							<div class="col-4">
-								<div class="max-clocks float-right">
+								<div class="float-right">
 									<label>System</label>
 									<div>
-										<button id="load" class="btn btn-sm btn-warning" type="button">Save</button>
-										<button id="save" class="btn btn-sm btn-warning" type="button">Load</button>
+										<button id="save-button" class="btn btn-sm btn-warning" type="file">Save</button>
+										<label id="load-button" class="btn btn-sm btn-warning mb-0">
+											Load
+											<input id="load-file" type="file" hidden>
+										</label>
 									</div>
 								</div>
 							</div>
@@ -180,7 +183,7 @@ L16.79,18.21z" />
 
 							<div class="col-4">
 								<div class="float-right">
-									<button id="reset" class="btn btn-sm btn-danger" type="button">Reset</button>
+									<button id="reset-button" class="btn btn-sm btn-danger" type="button">Reset</button>
 								</div>
 							</div>
 
@@ -355,7 +358,7 @@ L16.79,18.21z" />
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<div class="input-group-text">
-													<input id="all-common-locale" type="checkbox" checked="checked">&nbsp;Show all
+													<input id="all-common-locale" type="checkbox" checked>&nbsp;Show all
 												</div>
 											</div>
 											<select id="locale-select" class="custom-select"></select>
@@ -397,25 +400,19 @@ L16.79,18.21z" />
 								<div class="row mb-2">
 									<div class="col">
 										Theme
-										<select class="custom-select" id="themeSelect">
-											<option selected hidden>Select theme</option>
+										<select class="custom-select" id="theme-select">
+											<option value="null" selected hidden>Select theme</option>
 											<option value="none">None</option>
-											<option value="theme_coral">Coral</option>
-											<option value="theme_digital">Digital</option>
-											<option value="theme_enterprise">Enterprise</option>
-											<option value="theme_indigofera">Indigofera</option>
-											<option value="theme_kokiri">Kokiri</option>
-											<option value="theme_lcd">LCD</option>
-											<option value="theme_lega">Lega</option>
-											<option value="theme_rainbow">Rainbow</option>
+											<option value="coral">Coral</option>
+											<option value="digital">Digital</option>
+											<option value="enterprise">Enterprise</option>
+											<option value="indigofera">Indigofera</option>
+											<option value="kokiri">Kokiri</option>
+											<option value="lcd">LCD</option>
+											<option value="lega">Lega</option>
+											<option value="rainbow">Rainbow</option>
 										</select>
 									</div>
-
-									<!-- <div class="col-4">
-<div>&nbsp;</div>
-<button id="reset-style-button" class="btn btn-danger reset-button float-right" type="button">Reset all</button>
-</div> -->
-
 								</div>
 
 								<div class="row mb-2 advanced-option">
@@ -598,98 +595,98 @@ L16.79,18.21z" />
 							<div id="more-display-settings-tab" class="tab-pane fade" role="tabpanel">
 								<div class="advanced-option">
 
-								<!-- Custom title css  -->
-								<div id="clock-title-extra-css-row" class="row mb-2">
-									<div class="col">
-										Custom title extra CSS
-										<div class="input-group">
-											<input id="clock-title-extra-css" type="text" placeholder='e.g. {"font-family":"courier"}' class="form-control">
-											<div class="input-group-append">
-												<button id="clock-title-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Custom time css  -->
-								<div id="clock-time-extra-css-row" class="row mb-2">
-									<div class="col">
-										Custom time extra CSS
-										<div class="input-group">
-											<input id="clock-time-extra-css" type="text" placeholder='e.g. {"text-decoration": "underline overline dotted red"}' class="form-control">
-											<div class="input-group-append">
-												<button id="clock-time-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Custom date css  -->
-								<div id="clock-date-extra-css-row" class="row mb-2">
-									<div class="col">
-										Custom date extra CSS
-										<div class="input-group">
-											<input id="clock-date-extra-css" type="text" placeholder='e.g. {"color": "red", "background-color": "black"}' class="form-control">
-											<div class="input-group-append">
-												<button id="clock-date-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Custom date css  -->
-								<div id="clock-all-extra-css-row" class="row mb-2">
-									<div class="col">
-										Custom whole-clock extra CSS
-										<div class="input-group">
-											<input id="clock-all-extra-css" type="text" placeholder='e.g. {"background-color": "coral"}' class="form-control">
-											<div class="input-group-append">
-												<button id="clock-all-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="row mb-2">
-									<div class="col">
-										Highlight non-local dates
-										<div id="highlight-nonlocal-dates-color" class="input-group colorpicker-component cp">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													<input id="highlight-nonlocal-dates" type="checkbox">
+									<!-- Custom title css  -->
+									<div id="clock-title-extra-css-row" class="row mb-2">
+										<div class="col">
+											Custom title extra CSS
+											<div class="input-group">
+												<input id="clock-title-extra-css" type="text" placeholder='e.g. {"font-family":"courier"}' class="form-control">
+												<div class="input-group-append">
+													<button id="clock-title-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
 												</div>
 											</div>
-											<input type="text" value="#000000" class="form-control color-value" />
-											<div class="input-group-append">
-												<span class="input-group-text input-group-addon">
-													<i></i>
-												</span>
-											</div>
 										</div>
 									</div>
-								</div>
 
-
-								<div class="row mb-2">
-									<div class="col">
-										Highlight non-business hours
-										<div id="highlight-nonbusiness-hours-color" class="input-group colorpicker-component cp">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													<input id="highlight-nonbusiness-hours" type="checkbox">
+									<!-- Custom time css  -->
+									<div id="clock-time-extra-css-row" class="row mb-2">
+										<div class="col">
+											Custom time extra CSS
+											<div class="input-group">
+												<input id="clock-time-extra-css" type="text" placeholder='e.g. {"text-decoration": "underline overline dotted red"}' class="form-control">
+												<div class="input-group-append">
+													<button id="clock-time-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
 												</div>
 											</div>
-											<input type="text" value="#000000" class="form-control color-value" />
-											<div class="input-group-append">
-												<span class="input-group-text input-group-addon">
-													<i></i>
-												</span>
+										</div>
+									</div>
+
+									<!-- Custom date css  -->
+									<div id="clock-date-extra-css-row" class="row mb-2">
+										<div class="col">
+											Custom date extra CSS
+											<div class="input-group">
+												<input id="clock-date-extra-css" type="text" placeholder='e.g. {"color": "red", "background-color": "black"}' class="form-control">
+												<div class="input-group-append">
+													<button id="clock-date-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
 
-							</div>
+									<!-- Custom date css  -->
+									<div id="clock-all-extra-css-row" class="row mb-2">
+										<div class="col">
+											Custom whole-clock extra CSS
+											<div class="input-group">
+												<input id="clock-all-extra-css" type="text" placeholder='e.g. {"background-color": "coral"}' class="form-control">
+												<div class="input-group-append">
+													<button id="clock-all-extra-css-submit" class="btn btn-outline-secondary css-submit-button" type="button">Set</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row mb-2">
+										<div class="col">
+											Highlight non-local dates
+											<div id="highlight-nonlocal-dates-color" class="input-group colorpicker-component cp">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<input id="highlight-nonlocal-dates" type="checkbox">
+													</div>
+												</div>
+												<input type="text" value="#000000" class="form-control color-value" />
+												<div class="input-group-append">
+													<span class="input-group-text input-group-addon">
+														<i></i>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="row mb-2">
+										<div class="col">
+											Highlight non-business hours
+											<div id="highlight-nonbusiness-hours-color" class="input-group colorpicker-component cp">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<input id="highlight-nonbusiness-hours" type="checkbox">
+													</div>
+												</div>
+												<input type="text" value="#000000" class="form-control color-value" />
+												<div class="input-group-append">
+													<span class="input-group-text input-group-addon">
+														<i></i>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
 							</div>
 						</div>
 					</div>
