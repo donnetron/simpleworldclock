@@ -13,9 +13,10 @@ body, html, .container-fluid, .col {
 
 #max-clocks {
 	max-width: 30px;
+	margin: 0;
 }
 
-.max-clocks label, .max-clocks input {
+.max-clocks label, .max-clocks input, .system label {
 	vertical-align: middle;
 	text-align: center;
     padding:0px;
@@ -65,4 +66,16 @@ body, html, .container-fluid, .col {
 
 .svg-red {
 	fill: red;
+ }
+
+ .svg-white {
+	 fill: white;
+ }
+
+ .svg-blue {
+	 fill: #428bca;
+ }
+
+ .svg-green {
+	fill: #82fda1;
  }

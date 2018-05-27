@@ -1,10 +1,17 @@
 $(function () {
 
     // var zoneArray = zoneArray;          //note "zoneArray" IS SET FROM FURTHER JSON FILE
-    var simpleWorldClock = {};
+    // var localeArray = localeArray;      //note "localeArray" IS SET FROM FURTHER JSON FILE
+    var simpleWorldClock = JSON.parse(localStorage.getItem('simpleWorldClock'));
 
-    simpleWorldClock.worldClocks = getDefaultClocks();
-    simpleWorldClock.globalSettings = getDefaultSettings();
+    if (simpleWorldClock === null) {
+        console.log("no localversion");
+        simpleWorldClock = {};
+        simpleWorldClock.worldClocks = getDefaultClocks();
+        simpleWorldClock.globalSettings = getDefaultSettings();
+    } else {
+        $('#remember-button svg').toggleClass('svg-green');
+    }
 
     var worldClocks = simpleWorldClock.worldClocks;
     var globalSettings = simpleWorldClock.globalSettings;
@@ -15,6 +22,10 @@ $(function () {
 
     var allLocales = getLocaleMenuTemplate(localeArray, "all");
     var commonLocales = getLocaleMenuTemplate(localeArray, "common")
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
 
     $('.advanced-option').hide()
 
@@ -45,6 +56,14 @@ $(function () {
     $('.display').click(function () {
         $('#settings-modal').modal('show');
         updateClockSelection(worldClocks, globalSettings);
+    });
+
+    //On hide settings modal save locally the settings (this is a work around to apprximate the time somethigng has probably changed but avoiding constantly saving
+    $('#settings-modal').on('hidden.bs.modal', function (e) {
+        if ($('#remember-button svg').hasClass('svg-green')) {
+            localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
+            console.log('SAVING localstorage');
+        }
     });
 
     //Advanced mode
@@ -87,15 +106,15 @@ $(function () {
         updateClockSelection(worldClocks, globalSettings);
     });
 
-    //Reset all clock(s)
-    $('#reset-button').click(function (e) {
-        e.preventDefault();
-        if (window.confirm("Will reset all time-zones to default, and remove all styles. Are you sure?")) {
-            worldClocks = getDefaultClocks();
-            updateClocks(worldClocks);
-            updateClockSelection(worldClocks, globalSettings);
-            $('*:not(iframe)').removeAttr('style');
-            $('#settings-modal').modal('hide');
+    //Remember settings
+    $('#remember-button').click(function () {
+        $('#remember-button svg').toggleClass('svg-green');
+        if ($('#remember-button svg').hasClass('svg-green')) {
+            localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
+            console.log('saving localstorage');
+        } else {
+            console.log('clearing localstorage');
+            localStorage.clear();
         }
     });
 
@@ -108,6 +127,7 @@ $(function () {
         a.click()
     });
 
+    //Load clock settings
     $('#load-file').change(function () {
         if (!window.FileReader) {
             return alert('FileReader API is not supported by your browser.');
@@ -131,6 +151,18 @@ $(function () {
         } else {
             // Handle errors here
             alert("File not selected or browser incompatible.")
+        }
+    });
+
+    //Reset all clock(s)
+    $('#reset-button').click(function (e) {
+        e.preventDefault();
+        if (window.confirm("Will reset all time-zones to default, and remove all styles. Are you sure?")) {
+            $('*:not(iframe)').removeAttr('style');
+            worldClocks = getDefaultClocks();
+            updateClocks(worldClocks);
+            updateClockSelection(worldClocks, globalSettings);
+            $('#settings-modal').modal('hide');
         }
     });
 
@@ -248,7 +280,6 @@ $(function () {
             if (obj.selected == true) {
                 obj.localeData = getLocale($('#locale-select').val());
             }
-            console.log(obj.localeData)
         });
     });
 
@@ -369,8 +400,6 @@ $(function () {
                 }
             }
         });
-        console.log(selector[1]);
-        console.log(cssVal);
         updateClockStyle(worldClocks);
     });
 
@@ -990,7 +1019,6 @@ function getDefaultClock() {
             titleFormat: "city"
         }
     }
-
     return defaultSettings;
 }
 
@@ -1054,4 +1082,77 @@ function getLocaleMenuTemplate(localeArray, subset) {
     }
 
     return template;
+}
+
+getTheme {
+
+    //default settings
+    var none = {
+        ampm: "24hr",
+        backgroundColor: "#ffffff",
+        title: {
+            fontSize: "14",
+            fontFamily: "Arial",
+            fontColor: "#000000",
+            bold: false,
+            italic: false,
+            underline: false,
+            extraCSS: {}
+        },
+        time: {
+            fontSize: "18",
+            fontFamily: "Arial",
+            fontColor: "#000000",
+            bold: false,
+            italic: false,
+            underline: false,
+            extraCSS: {}
+        },
+        date: {
+            fontSize: "12",
+            fontFamily: "Arial",
+            fontColor: "#000000",
+            bold: false,
+            italic: false,
+            underline: false,
+            extraCSS: {}
+        },
+        blinkOn: true,
+        calendarSystem: "gregory",
+        dateFormat: "shortday",
+        display: true,
+        extraCSS: {},
+        highlightNonLocalDates: false,
+        highlightNonlocalDatesColor: "#000000",
+        highlightNonbusinessHours: false,
+        highlightNonbusinessHoursColor: "000000",
+        numberSystem: "latn",
+        showSeconds: "none",
+        theme: "none",
+        titleFormat: "city"
+    };
+
+    //coral reds/pinks
+    var coral = {};
+
+    //dot matrix (not seven segment)
+    var digital = {};
+
+    //orbitron
+    var enterprise = {};
+
+    //blue shades
+    var indigofera = {};
+
+    //green shades
+    var kokiri = {};
+
+    //seven-segment
+    var lcd = {};
+
+    //red orange yellow purple
+    var lega = {};
+
+    //rainbow
+    var rainbow = {};
 }
