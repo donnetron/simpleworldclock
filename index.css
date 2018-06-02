@@ -3,6 +3,11 @@
 	src: url('digital-7.ttf'); 
 }
 
+@font-face {
+    font-family: 'Digital-7-mono';
+	src: url('digital-7-mono.ttf'); 
+}
+
 body, html, .container-fluid, .col {
 	height: 100%;
 }

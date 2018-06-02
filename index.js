@@ -625,6 +625,10 @@ function updateClockStyle(worldClocks) {
         });
 
         //time-color
+        if (obj.id == 1) {
+            console.log("settingtime for clock: " + obj.id)
+            console.log('color:' +  obj.settings.time.fontColor);
+        }
         $('#clock-time-' + obj.id).css({
             'color': obj.settings.time.fontColor
         });
@@ -669,7 +673,13 @@ function updateClockStyle(worldClocks) {
         });
 
         //date-css
-        $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
+        if (obj.settings.date.extraCSS == '') {
+            $('#clock-date-' + obj.id).removeAttr('style');
+        }
+        else {
+            $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
+        }
+        
 
         //background-color
         $('#clock-' + obj.id).css({
@@ -686,7 +696,7 @@ function updateClockStyle(worldClocks) {
             });
         } else {
             $('#clock-' + obj.id + ' .date-before-today, ' + '#clock-' + obj.id + ' .date-after-today').css({
-                'color': obj.settings.time.fontColor
+                'color': obj.settings.date.fontColor
             });
         }
 
@@ -697,7 +707,7 @@ function updateClockStyle(worldClocks) {
             });
         } else {
             $('#clock-' + obj.id + ' .time-before-9, ' + '#clock-' + obj.id + ' .time-after-6').css({
-                'color': obj.settings.date.fontColor
+                'color': obj.settings.time.fontColor
             });
         }
     });
@@ -861,16 +871,20 @@ function getTimeFormat(ldt, clock) {
     var time;
 
     if (clock.settings.ampm == "12hr") {
+        console.log(ldt.locale);
         if (clock.settings.showSeconds == "number") {
             time = ldt.reconfigure({
+                locale: 'en-US', //sets locale to US for 12hr as en-GB etc don't support this
                 numberingSystem: clock.settings.numberSystem
             }).toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
         } else {
             time = ldt.reconfigure({
+                locale: 'en-US', //sets locale to US for 12hr as en-GB etc don't support this
                 numberingSystem: clock.settings.numberSystem
             }).toLocaleString(luxon.DateTime.TIME_SIMPLE);
         } // for blink or none
-    } else {
+    }
+    else {
         if (clock.settings.showSeconds == "number") {
             time = ldt.reconfigure({
                 numberingSystem: clock.settings.numberSystem
@@ -1012,7 +1026,7 @@ function getDefaultClock() {
             highlightNonLocalDates: false,
             highlightNonlocalDatesColor: "#000000",
             highlightNonbusinessHours: false,
-            highlightNonbusinessHoursColor: "000000",
+            highlightNonbusinessHoursColor: "#000000",
             numberSystem: "latn",
             showSeconds: "none",
             theme: "none",
@@ -1082,77 +1096,4 @@ function getLocaleMenuTemplate(localeArray, subset) {
     }
 
     return template;
-}
-
-getTheme {
-
-    //default settings
-    var none = {
-        ampm: "24hr",
-        backgroundColor: "#ffffff",
-        title: {
-            fontSize: "14",
-            fontFamily: "Arial",
-            fontColor: "#000000",
-            bold: false,
-            italic: false,
-            underline: false,
-            extraCSS: {}
-        },
-        time: {
-            fontSize: "18",
-            fontFamily: "Arial",
-            fontColor: "#000000",
-            bold: false,
-            italic: false,
-            underline: false,
-            extraCSS: {}
-        },
-        date: {
-            fontSize: "12",
-            fontFamily: "Arial",
-            fontColor: "#000000",
-            bold: false,
-            italic: false,
-            underline: false,
-            extraCSS: {}
-        },
-        blinkOn: true,
-        calendarSystem: "gregory",
-        dateFormat: "shortday",
-        display: true,
-        extraCSS: {},
-        highlightNonLocalDates: false,
-        highlightNonlocalDatesColor: "#000000",
-        highlightNonbusinessHours: false,
-        highlightNonbusinessHoursColor: "000000",
-        numberSystem: "latn",
-        showSeconds: "none",
-        theme: "none",
-        titleFormat: "city"
-    };
-
-    //coral reds/pinks
-    var coral = {};
-
-    //dot matrix (not seven segment)
-    var digital = {};
-
-    //orbitron
-    var enterprise = {};
-
-    //blue shades
-    var indigofera = {};
-
-    //green shades
-    var kokiri = {};
-
-    //seven-segment
-    var lcd = {};
-
-    //red orange yellow purple
-    var lega = {};
-
-    //rainbow
-    var rainbow = {};
 }

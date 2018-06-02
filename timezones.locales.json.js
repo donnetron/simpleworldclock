@@ -5344,7 +5344,7 @@
 		"city": "Sydney",
 		"countrycode": "AU",
 		"IOC": "AUS",
-		"IATA": "BWU",
+		"IATA": "SYD",
 		"common": "true",
 		"coordinates": "−3352+15113",
 		"UTCoffset": "+10:00",
