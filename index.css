@@ -84,3 +84,8 @@ body, html, .container-fluid, .col {
  .svg-green {
 	fill: #82fda1;
  }
+
+ @keyframes lcdFade {
+	0%   { opacity:0.8; }
+	100% { opacity:0.6; }
+  }

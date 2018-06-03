@@ -123,7 +123,7 @@ $(function () {
         var text = JSON.stringify(simpleWorldClock);
         var a = document.createElement('a');
         a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(text));
-        a.setAttribute('download', "simpleworldclock_settings.json");
+        a.setAttribute('download', "simpleworldclock-settings.json");
         a.click()
     });
 
@@ -590,8 +590,12 @@ function updateClockStyle(worldClocks) {
         });
 
         //title-css
-        $('#clock-title-' + obj.id).css(obj.settings.title.extraCSS);
-
+        if ($.isEmptyObject(obj.settings.title.extraCSS)) {
+            //$('#clock-title-' + obj.id).removeAttr('style');
+        }
+        else {
+            $('#clock-title-' + obj.id).css(obj.settings.title.extraCSS);
+        }
 
         //time-biu
         if (obj.settings.time.bold == true) {
@@ -625,16 +629,17 @@ function updateClockStyle(worldClocks) {
         });
 
         //time-color
-        if (obj.id == 1) {
-            console.log("settingtime for clock: " + obj.id)
-            console.log('color:' +  obj.settings.time.fontColor);
-        }
         $('#clock-time-' + obj.id).css({
             'color': obj.settings.time.fontColor
         });
 
         //time-css
-        $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
+        if ($.isEmptyObject(obj.settings.time.extraCSS)) {
+           // $('#clock-time-' + obj.id).removeAttr('style');
+        }
+        else {
+            $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
+        }
 
         //date-biu
         if (obj.settings.date.bold == true) {
@@ -673,8 +678,8 @@ function updateClockStyle(worldClocks) {
         });
 
         //date-css
-        if (obj.settings.date.extraCSS == '') {
-            $('#clock-date-' + obj.id).removeAttr('style');
+        if ($.isEmptyObject(obj.settings.date.extraCSS)) {
+           // $('#clock-date-' + obj.id).removeAttr('style');
         }
         else {
             $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
@@ -687,7 +692,12 @@ function updateClockStyle(worldClocks) {
         });
 
         //clock-css
-        $('#clock-' + obj.id).css(obj.settings.extraCSS);
+        if ($.isEmptyObject(obj.settings.extraCSS)) {
+           // $('#clock-' + obj.id).removeAttr('style');
+        }
+        else {
+            $('#clock-' + obj.id).css(obj.settings.extraCSS);
+        }
 
         //nonlocaldates
         if (obj.settings.highlightNonLocalDates == true) {
@@ -793,10 +803,14 @@ function updateClockSelection(worldClocks, globalSettings) {
             if ($.isEmptyObject(clock.settings[selector[i]].extraCSS)) {
                 $('#clock-' + selector[i] + '-extra-css').val('');
             } else {
-                $('#clock-' + selector[i] + '-extra-css').val(clock.settings[selector[i]].extraCSS);
+                $('#clock-' + selector[i] + '-extra-css').val(JSON.stringify(clock.settings[selector[i]].extraCSS));
             }
         }
-        $('#clock-all-extra-css').val(clock.settings.extraCSS);
+        if ($.isEmptyObject(clock.settings.extraCSS)) {
+            $('#clock-all-extra-css').val('');
+        } else {
+            $('#clock-all-extra-css').val(JSON.stringify(clock.settings.extraCSS));
+        }
 
         if (clock.settings.highlightNonLocalDates == true) {
             $('#highlight-nonlocal-dates').prop("checked", true);
