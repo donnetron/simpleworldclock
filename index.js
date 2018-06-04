@@ -128,6 +128,10 @@ $(function () {
     });
 
     //Load clock settings
+    $('#load-button').click(function () {
+        $('#load-file').trigger('click');
+    });
+
     $('#load-file').change(function () {
         if (!window.FileReader) {
             return alert('FileReader API is not supported by your browser.');
@@ -311,7 +315,34 @@ $(function () {
 
     //Select theme
     $('#theme-select').change(function () {
-        $('head').append('<link rel="stylesheet" href="' + $('#theme-select').val() + '.css" type="text/css" id="currentTheme" />');
+        // $('#theme-select').val();
+
+        // var themeSettings = themeObject[$('#theme-select').val()];
+        // console.log(themeSettings);
+
+        // $.each(themeSettings, function (panelIndex, panel) {
+        //     console.log(panel.clocks[0]);
+        //     if (panel.clocks[0] == 'all') {
+        //         $.each(panel.settings, function (settingKey, settingValue) {
+        //             $.each(worldClocks, function (index, obj) {
+        //                 console.log("ID " + ": settings[" + obj.settings[settingKey] + "] = " + settingValue);
+        //                 //obj.settings[settingKey] = settingValue;
+        //             });
+        //         });
+        //     } else {
+        //         $.each(panel.clocks, function (index, clockID) {
+        //             $.each(worldClocks, function (index, obj) {
+        //                 if (obj.id == clockID) {
+        //                     $.each(panel.settings, function (settingKey, settingValue) {
+        //                         console.log("ID " + ": settings[" + obj.settings[settingKey] + "] = " + settingValue);
+        //                         //obj.settings[settingKey] = settingValue;
+        //                     });
+        //                 }
+        //             });
+        //         });
+        //     }
+        // });
+        // updateClockStyle(worldClocks);
     });
 
     //Bold/Italic/Underline text
@@ -450,7 +481,9 @@ $(function () {
 
     //bug work-around
     $('.colorpicker').removeClass('colorpicker-with-alpha');
-
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
+    });
     // END JQUERY.DOCUMENT.READY
 });
 
@@ -592,8 +625,7 @@ function updateClockStyle(worldClocks) {
         //title-css
         if ($.isEmptyObject(obj.settings.title.extraCSS)) {
             //$('#clock-title-' + obj.id).removeAttr('style');
-        }
-        else {
+        } else {
             $('#clock-title-' + obj.id).css(obj.settings.title.extraCSS);
         }
 
@@ -635,9 +667,8 @@ function updateClockStyle(worldClocks) {
 
         //time-css
         if ($.isEmptyObject(obj.settings.time.extraCSS)) {
-           // $('#clock-time-' + obj.id).removeAttr('style');
-        }
-        else {
+            // $('#clock-time-' + obj.id).removeAttr('style');
+        } else {
             $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
         }
 
@@ -679,12 +710,11 @@ function updateClockStyle(worldClocks) {
 
         //date-css
         if ($.isEmptyObject(obj.settings.date.extraCSS)) {
-           // $('#clock-date-' + obj.id).removeAttr('style');
-        }
-        else {
+            // $('#clock-date-' + obj.id).removeAttr('style');
+        } else {
             $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
         }
-        
+
 
         //background-color
         $('#clock-' + obj.id).css({
@@ -693,9 +723,8 @@ function updateClockStyle(worldClocks) {
 
         //clock-css
         if ($.isEmptyObject(obj.settings.extraCSS)) {
-           // $('#clock-' + obj.id).removeAttr('style');
-        }
-        else {
+            // $('#clock-' + obj.id).removeAttr('style');
+        } else {
             $('#clock-' + obj.id).css(obj.settings.extraCSS);
         }
 
@@ -897,8 +926,7 @@ function getTimeFormat(ldt, clock) {
                 numberingSystem: clock.settings.numberSystem
             }).toLocaleString(luxon.DateTime.TIME_SIMPLE);
         } // for blink or none
-    }
-    else {
+    } else {
         if (clock.settings.showSeconds == "number") {
             time = ldt.reconfigure({
                 numberingSystem: clock.settings.numberSystem

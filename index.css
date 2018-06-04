@@ -89,3 +89,9 @@ body, html, .container-fluid, .col {
 	0%   { opacity:0.8; }
 	100% { opacity:0.6; }
   }
+
+  .hidden-file {
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+   }
