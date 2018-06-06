@@ -2,10 +2,10 @@ $(function () {
 
     // var zoneArray = zoneArray;          //note "zoneArray" IS SET FROM FURTHER JSON FILE
     // var localeArray = localeArray;      //note "localeArray" IS SET FROM FURTHER JSON FILE
+    // var themeObject = themeObject;         //note "themeObject" IS SET FROM  FURTHER JSON FILE
     var simpleWorldClock = JSON.parse(localStorage.getItem('simpleWorldClock'));
 
     if (simpleWorldClock === null) {
-        console.log("no localversion");
         simpleWorldClock = {};
         simpleWorldClock.worldClocks = getDefaultClocks();
         simpleWorldClock.globalSettings = getDefaultSettings();
@@ -62,7 +62,6 @@ $(function () {
     $('#settings-modal').on('hidden.bs.modal', function (e) {
         if ($('#remember-button svg').hasClass('svg-green')) {
             localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
-            console.log('SAVING localstorage');
         }
     });
 
@@ -111,9 +110,7 @@ $(function () {
         $('#remember-button svg').toggleClass('svg-green');
         if ($('#remember-button svg').hasClass('svg-green')) {
             localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
-            console.log('saving localstorage');
         } else {
-            console.log('clearing localstorage');
             localStorage.clear();
         }
     });
@@ -315,35 +312,13 @@ $(function () {
 
     //Select theme
     $('#theme-select').change(function () {
-        // $('#theme-select').val();
 
-        // var themeSettings = themeObject[$('#theme-select').val()];
-        // console.log(themeSettings);
-
-        // $.each(themeSettings, function (panelIndex, panel) {
-        //     console.log(panel.clocks[0]);
-        //     if (panel.clocks[0] == 'all') {
-        //         $.each(panel.settings, function (settingKey, settingValue) {
-        //             $.each(worldClocks, function (index, obj) {
-        //                 console.log("ID " + ": settings[" + obj.settings[settingKey] + "] = " + settingValue);
-        //                 //obj.settings[settingKey] = settingValue;
-        //             });
-        //         });
-        //     } else {
-        //         $.each(panel.clocks, function (index, clockID) {
-        //             $.each(worldClocks, function (index, obj) {
-        //                 if (obj.id == clockID) {
-        //                     $.each(panel.settings, function (settingKey, settingValue) {
-        //                         console.log("ID " + ": settings[" + obj.settings[settingKey] + "] = " + settingValue);
-        //                         //obj.settings[settingKey] = settingValue;
-        //                     });
-        //                 }
-        //             });
-        //         });
-        //     }
-        // });
-        // updateClockStyle(worldClocks);
+        updateTheme(themeObject['none'], worldClocks); //clear it first
+        updateTheme(themeObject[$('#theme-select').val()], worldClocks);
+        updateClockStyle(worldClocks);
+        updateClockSelection(worldClocks, globalSettings);
     });
+
 
     //Bold/Italic/Underline text
     $('.font-button').click(function () {
@@ -586,6 +561,31 @@ function updateClockStyle(worldClocks) {
     $.each(worldClocks, function (index, obj) {
         var styleSheetId = "";
 
+        //IMPORTANT: extra CSS settings is included at the top of the function for a reason - if empty it removes styling which might otherwise be set by other components
+        //clock-css
+        $('#clock-' + obj.id).removeAttr('style');
+        if (!$.isEmptyObject(obj.settings.extraCSS)) {
+            $('#clock-' + obj.id).css(obj.settings.extraCSS);
+        }
+
+        //title-css
+        $('#clock-title-' + obj.id).removeAttr('style');
+        if (!$.isEmptyObject(obj.settings.title.extraCSS)) {
+            $('#clock-title-' + obj.id).css(obj.settings.title.extraCSS);
+        }
+
+        //time-css
+        $('#clock-time-' + obj.id).removeAttr('style');
+        if (!$.isEmptyObject(obj.settings.time.extraCSS)) {
+            $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
+        }
+
+        //date-css
+        $('#clock-date-' + obj.id).removeAttr('style');
+        if (!$.isEmptyObject(obj.settings.date.extraCSS)) {
+            $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
+        }
+
         //title-biu
         if (obj.settings.title.bold == true) {
             $('#clock-title-' + obj.id).addClass('font-weight-bold');
@@ -665,13 +665,6 @@ function updateClockStyle(worldClocks) {
             'color': obj.settings.time.fontColor
         });
 
-        //time-css
-        if ($.isEmptyObject(obj.settings.time.extraCSS)) {
-            // $('#clock-time-' + obj.id).removeAttr('style');
-        } else {
-            $('#clock-time-' + obj.id).css(obj.settings.time.extraCSS);
-        }
-
         //date-biu
         if (obj.settings.date.bold == true) {
             $('#clock-date-' + obj.id).addClass('font-weight-bold');
@@ -708,25 +701,10 @@ function updateClockStyle(worldClocks) {
             'color': obj.settings.date.fontColor
         });
 
-        //date-css
-        if ($.isEmptyObject(obj.settings.date.extraCSS)) {
-            // $('#clock-date-' + obj.id).removeAttr('style');
-        } else {
-            $('#clock-date-' + obj.id).css(obj.settings.date.extraCSS);
-        }
-
-
         //background-color
         $('#clock-' + obj.id).css({
             'background-color': obj.settings.backgroundColor
         });
-
-        //clock-css
-        if ($.isEmptyObject(obj.settings.extraCSS)) {
-            // $('#clock-' + obj.id).removeAttr('style');
-        } else {
-            $('#clock-' + obj.id).css(obj.settings.extraCSS);
-        }
 
         //nonlocaldates
         if (obj.settings.highlightNonLocalDates == true) {
@@ -800,6 +778,7 @@ function updateClockSelection(worldClocks, globalSettings) {
 
         //display settings tab
         $('#theme-select').val(clock.settings.theme);
+
         for (i = 0; i < selector.length; i++) {
             if (clock.settings[selector[i]].bold == true) {
                 $('#' + selector[i] + '-font-bold').addClass('btn-primary').removeClass('btn-secondary');
@@ -886,6 +865,66 @@ function updateClockSelection(worldClocks, globalSettings) {
     }
 }
 
+function updateTheme(theme, worldClocks) {
+    $.each(worldClocks, function (clockIndex, clock) {
+        clock.settings.title.extraCSS = {};
+        clock.settings.time.extraCSS = {};
+        clock.settings.date.extraCSS = {};
+        clock.settings.extraCSS = {};
+    });
+
+    $.each(theme, function (index, obj) {
+        if (obj.clocks[0] == 'all') {
+            $.each(worldClocks, function (clockIndex, clock) {
+                $.each(obj.settings, function (settingKey, settingValue) {
+                    setDeep(clock, settingKey.split('.'), settingValue, false);
+                });
+            });
+        } else {
+            $.each(obj.clocks, function (i, clockID) {
+                $.each(worldClocks, function (clockIndex, clock) {
+                    if (clockID == clock.id) {
+                        $.each(obj.settings, function (settingKey, settingValue) {
+                            setDeep(clock, settingKey.split('.'), settingValue, false);
+                        });
+                    }
+                });
+            });
+        }
+    });
+}
+
+/**
+ * thank you https://stackoverflow.com/a/46008856/3341332
+ * Dynamically sets a deeply nested value in an object.
+ * Optionally "bores" a path to it if its undefined.
+ * @function
+ * @param {!object} obj  - The object which contains the value you want to change/set.
+ * @param {!array} path  - The array representation of path to the value you want to change/set.
+ * @param {!mixed} value - The value you want to set it to.
+ * @param {boolean} setrecursively - If true, will set value of non-existing path as well.
+ */
+function setDeep(obj, path, value, setrecursively = false) {
+
+    let level = 0;
+
+    path.reduce((a, b) => {
+        level++;
+
+        if (setrecursively && typeof a[b] === "undefined" && level !== path.length) {
+            a[b] = {};
+            return a[b];
+        }
+
+        if (level === path.length) {
+            a[b] = value;
+            return value;
+        } else {
+            return a[b];
+        }
+    }, obj);
+}
+
 function getTitleFormat(clock) {
     var title;
 
@@ -914,7 +953,6 @@ function getTimeFormat(ldt, clock) {
     var time;
 
     if (clock.settings.ampm == "12hr") {
-        console.log(ldt.locale);
         if (clock.settings.showSeconds == "number") {
             time = ldt.reconfigure({
                 locale: 'en-US', //sets locale to US for 12hr as en-GB etc don't support this
