@@ -166,7 +166,8 @@ var themeObject = {
             "clocks": [1, 2, 3, 4],
             "settings": {
                 "settings.extraCSS": {
-                    "box-shadow": "inset 0 300px 300px -150px #8acd50"
+                    "box-shadow": "inset 0 300px 300px -150px #8acd50",
+                    "text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
                 },
             }
         },
@@ -174,7 +175,8 @@ var themeObject = {
             "clocks": [5, 6, 7, 8],
             "settings": {
                 "settings.extraCSS": {
-                    "box-shadow": "inset 0 -300px 300px -150px #8acd50"
+                    "box-shadow": "inset 0 -300px 300px -150px #8acd50",
+                    "text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
                 },
             }
         }
@@ -395,7 +397,8 @@ var themeObject = {
             "settings.extraCSS": {
                 "text-shadow": "0 0 3em #0da183, 0 0 1em #0da183, 0 0 0.9em #0da183",
                 "background": "linear-gradient(to bottom, rgba(0,15,12,0.9), rgba(0,15,12,0.8) 50%, rgba(0,15,12,0.9) 10%, rgba(0,15,12,0.9))",
-                "background-size": "100% 0.3rem"
+                "background-size": "100% 0.3rem",
+                "border": "dashed 1px #14fdce"
             },
             "settings.showSeconds": "none",
             "settings.theme": "vt100"

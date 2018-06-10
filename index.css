@@ -1,14 +1,17 @@
 @font-face {
-    font-family: 'Digital-7';
-	src: url('digital-7.ttf'); 
+	font-family: 'Digital-7';
+	src: url('digital-7.ttf');
 }
 
 @font-face {
-    font-family: 'Digital-7-mono';
-	src: url('digital-7-mono.ttf'); 
+	font-family: 'Digital-7-mono';
+	src: url('digital-7-mono.ttf');
 }
 
-body, html, .container-fluid, .col {
+body,
+html,
+.container-fluid,
+.col {
 	height: 100%;
 }
 
@@ -21,11 +24,13 @@ body, html, .container-fluid, .col {
 	margin: 0;
 }
 
-.max-clocks label, .max-clocks input, .system label {
+.max-clocks label,
+.max-clocks input,
+.system label {
 	vertical-align: middle;
 	text-align: center;
-    padding:0px;
-    margin:0px;
+	padding: 0px;
+	margin: 0px;
 }
 
 .modal {
@@ -33,15 +38,15 @@ body, html, .container-fluid, .col {
 	overflow-y: auto;
 }
 
-.modal-close:focus, .modal-close:active {
-    box-shadow: none;
-    outline: none;
+.modal-close:focus,
+.modal-close:active {
+	box-shadow: none;
+	outline: none;
 }
 
-.font-underline { 
-	text-decoration: underline; 
+.font-underline {
+	text-decoration: underline;
 }
-
 
 .invisible {
 	visibility: hidden;
@@ -65,33 +70,28 @@ body, html, .container-fluid, .col {
 }
 
 .vertical-align {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .svg-red {
 	fill: red;
- }
+}
 
- .svg-white {
-	 fill: white;
- }
+.svg-white {
+	fill: white;
+}
 
- .svg-blue {
-	 fill: #428bca;
- }
+.svg-blue {
+	fill: #428bca;
+}
 
- .svg-green {
+.svg-green {
 	fill: #82fda1;
- }
+}
 
- @keyframes lcdFade {
-	0%   { opacity:0.8; }
-	100% { opacity:0.6; }
-  }
-
-  .hidden-file {
+.hidden-file {
 	width: 0px;
 	height: 0px;
 	overflow: hidden;
-   }
+}

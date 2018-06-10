@@ -672,6 +672,91 @@
 	</div>
 	<!-- end modal -->
 
+
+
+	<!-- Help/About Modal -->
+	<!-- header -->
+	<div id="help-about-modal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div id="help-about-modal-content" class="modal-content">
+
+				<div id="help-about-modal-header" class="modal-header align-items-center">
+					<h5 class="modal-title">Help/About</h5>
+
+					<button type="button" class="close modal-close align-items-center" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+
+				<!-- body -->
+				<div id="help-about-modal-body" class="modal-body">
+
+					<!-- tab panel -->
+					<div class="tab-navigation">
+
+						<!-- nav row -->
+						<ul id="help-about-nav-tab" class="nav nav-tabs mb-3" role="tablist">
+							<li class="nav-item">
+								<a id="help" class="nav-link active" href="#help-tab" data-toggle="tab" role="tab">Help</a>
+							</li>
+							<li class="nav-item">
+								<a id="about" class="nav-link" href="#about-tab" data-toggle="tab" role="tab">About</a>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="tab-content">
+						<!-- Clock settings tab -->
+						<div id="help-tab" class="tab-pane fade show active" role="tabpanel">
+
+							<!-- help -->
+							<div class="row mb-2">
+								<div class="col">
+									<h5>Some tips for using Simple World Clock</h5>
+									<ul>
+										<li class="small"><span class="font-weight-bold">Font size</span> - use the settings to adjust the font size. It's small becuase it was too hard to adjust for normal 'monitor size' resolutions and very small 'clock size' resolutions (e.g. a 320x240 display).</li>
+										<li class="small"><span class="font-weight-bold">Select the clock</span> - remember you have to select which clock you want to apply a style to, or otherwise select 'All'. I kept expecting my settings to change things and then realising I hadn't selected 'All'.</li>
+										<li class="small"><span class="font-weight-bold">Enable 'Advanced options'</span> - It adds a lot of clutter but you can change a lot of things (font size being a main benefit).</li>
+										<li class="small"><span class="font-weight-bold">Beware extra CSS</span> - the 'extra css' options can be dangerous if you manage to break the html behind the classes. It obviously can all be reset, but if you are getting strange results becuase of fancy css you are applying this might be the reason.</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+
+						<!-- Display settings tab -->
+						<div id="about-tab" class="tab-pane fade" role="tabpanel">
+
+							<!-- Theme select -->
+							<div class="row mb-2">
+								<div class="col small">
+										<h5>About</h5>
+										<p>This simple world clock is intended as a realtively straightforward 4x2 grid of clocks that could be set to different timezones, and be displayed on a small low-resolution screen at my desk.</p>
+										<p>Behold, the clock running an an old raspberry pi2 that has a tft screen stuck on to show the different timezones where I have frequent dealings with.</p>
+										<p>I originally intended this to be a 2 week project, but my inadequacies in coding ended up making it a 8 week project. This was mainly due to a desire to keep adding additional features for customising the clocks.</p>
+										<p>Customisation can be done on a 'per clock' basis, if for example, you wanted to include your home time and give it a more prominent feature, e.g.another background color or font.</p>
+										<p>You can also reduce the number of clocks to have any number between 1 and 8 if you didn't have a reason to have the defualt maximum. In addition, you can save and load the customisation and clock settings if you want to port it to a different device. I used this so I could set it up ony my desktop, but load the file on my raspberry pi without needing to customise at low-res</p>
+										<p>If you want to self host it, or look at it for any other reason, the source is on Github at <a href="https://github.com/donnetron/simpleworldclock">https://github.com/donnetron/simpleworldclock</a>.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end modal -->
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

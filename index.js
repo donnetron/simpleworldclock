@@ -2,7 +2,7 @@ $(function () {
 
     // var zoneArray = zoneArray;          //note "zoneArray" IS SET FROM FURTHER JSON FILE
     // var localeArray = localeArray;      //note "localeArray" IS SET FROM FURTHER JSON FILE
-    // var themeObject = themeObject;         //note "themeObject" IS SET FROM  FURTHER JSON FILE
+    // var themeObject = themeObject;      //note "themeObject" IS SET FROM FURTHER JSON FILE
     var simpleWorldClock = JSON.parse(localStorage.getItem('simpleWorldClock'));
 
     if (simpleWorldClock === null) {
@@ -99,7 +99,7 @@ $(function () {
             obj.selected = false;
         });
 
-        worldClocks[0].selected = true;
+        //worldClocks[0].selected = true;
 
         updateClockLayout(worldClocks, globalSettings.maxClocks);
         updateClockSelection(worldClocks, globalSettings);
@@ -153,6 +153,12 @@ $(function () {
             // Handle errors here
             alert("File not selected or browser incompatible.")
         }
+    });
+
+    //About/help
+    $('#about-button').click(function (e) {
+        $('#settings-modal').modal('toggle');
+        $('#help-about-modal').modal('show');
     });
 
     //Reset all clock(s)
@@ -854,7 +860,7 @@ function updateClockSelection(worldClocks, globalSettings) {
         $('#theme-select').val('null');
         $('.font-button').addClass('btn-secondary').removeClass('btn-primary');
         $('.font-family').val('null');
-        $('.font-size').val('12');
+        $('.font-size').val('');
         $('.cp input').val('Select color');
 
         //more display settings tab
@@ -1067,7 +1073,7 @@ function getDefaultClock() {
             common: "true"
         },
         tzData: "",
-        selected: false,
+        selected: true,
         settings: {
             ampm: "24hr",
             backgroundColor: "#ffffff",
