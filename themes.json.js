@@ -166,8 +166,8 @@ var themeObject = {
             "clocks": [1, 2, 3, 4],
             "settings": {
                 "settings.extraCSS": {
-                    "box-shadow": "inset 0 300px 300px -150px #8acd50",
-                    "text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
+                    "box-shadow": "inset 0 300px 300px -150px #8acd50"
+                    //"text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
                 },
             }
         },
@@ -176,7 +176,7 @@ var themeObject = {
             "settings": {
                 "settings.extraCSS": {
                     "box-shadow": "inset 0 -300px 300px -150px #8acd50",
-                    "text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
+                    //"text-shadow": "0 0 6em #4c4c4c, 0 0 4em #4c4c4c, 0 0 0.9em #4c4c4c",
                 },
             }
         }

@@ -45,9 +45,23 @@ $(function () {
     updateClocks(worldClocks);
     updateClockStyle(worldClocks, globalSettings);
 
-    //update time every second
+    var seconds = new Date().getSeconds();
+   //update time every second
     setInterval(function () {
-        updateClocks(worldClocks);
+        if (seconds == 0) {
+            updateClocks(worldClocks); 
+        }
+        if (seconds < 59) {
+            if (seconds % 2 == 0) { $('.blink').css('visibility', 'hidden'); }
+            else { $('.blink').css('visibility', 'visible'); }
+            if (seconds < 10) { seconds = '0' + seconds; }
+            $('.seconds').text(seconds);
+            seconds++    
+        }
+        else {
+            $('.seconds').text(seconds);
+            seconds = 0;
+        }
     }, 1000);
 
     //LISTENERS
@@ -68,7 +82,7 @@ $(function () {
     //Advanced mode
     $('#advanced-mode').click(function () {
         $('.advanced-option').toggle();
-        $('#advanced-mode svg').toggleClass('svg-red')
+        $('#advanced-mode svg').toggleClass('svg-red');
     });
 
     //Preview mode
@@ -79,6 +93,12 @@ $(function () {
         $('#settings-modal-header').toggleClass('no-border');
         $('.modal-backdrop').toggleClass('transparent-background');
         $('#settings-modal-content').toggleClass('transparent-background');
+    });
+
+    //Advanced mode
+    $('#close-settings').click(function () {
+        updateClocks(worldClocks);
+        updateClockStyle(worldClocks, globalSettings);
     });
 
     //CLOCK SETTINGS LISTENERS
@@ -489,7 +509,13 @@ function updateClocks(worldClocks) {
         var time = getTimeFormat(localdt, element);
         var date = getDateFormat(localdt, element);
 
-        time = time.replace(':', '<span class="separator">:</span>');
+        time = time.split(":");
+        if (time.length == 2) {
+            time = time[0] + '<span class="minute-separator separator">:</span>' + time[1];
+        }
+        else{
+            time = time[0] + '<span class="minute-separator separator">:</span>' + time[1] + '<span class="second-separator separator">:</span><span class="seconds">' + time[2] + '</span>';
+        }
 
         //print title
         $(clockTitleId).text(title);
@@ -504,12 +530,10 @@ function updateClocks(worldClocks) {
         }
 
         if (element.settings.showSeconds == "blink") {
-            if (element.settings.blinkOn == true) {
-                $(timeId + ' span.separator').css('visibility', 'hidden');
-                element.settings.blinkOn = false;
-            } else {
-                element.settings.blinkOn = true;
-            }
+            $(timeId + ' span.separator').addClass('blink');
+        }
+        else {
+            $(timeId + ' span.separator').removeClass('blink');
         }
 
         //print date
@@ -860,8 +884,8 @@ function updateClockSelection(worldClocks, globalSettings) {
         $('#theme-select').val('null');
         $('.font-button').addClass('btn-secondary').removeClass('btn-primary');
         $('.font-family').val('null');
-        $('.font-size').val('');
-        $('.cp input').val('Select color');
+        $('.font-size').val('18');
+        $('.cp input').val('Select');
 
         //more display settings tab
         for (i = 0; i < selector.length; i++) {
