@@ -70,13 +70,26 @@ $(function () {
     $('.display').click(function () {
         $('#settings-modal').modal('show');
         updateClockSelection(worldClocks, globalSettings);
+        updateClockStyle(worldClocks, globalSettings);
+    });
+
+    //Update and save on any click inside the settings modal (CPU intensive?)
+    $('#settings-modal').click(function () {
+        if ($('#remember-button svg').hasClass('svg-green')) {
+            localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
+        }
+        updateClocks(worldClocks);
+        updateClockStyle(worldClocks, globalSettings);
+        console.log("updated");
     });
 
     //On hide settings modal save locally the settings (this is a work around to apprximate the time somethigng has probably changed but avoiding constantly saving
     $('#settings-modal').on('hidden.bs.modal', function (e) {
-        if ($('#remember-button svg').hasClass('svg-green')) {
-            localStorage.setItem('simpleWorldClock', JSON.stringify(simpleWorldClock));
-        }
+        $('#settings-modal-header h5').removeClass('invisible');
+        $('#settings-inner-body').removeClass('invisible');
+        $('#settings-modal-header').removeClass('no-border');
+        $('.modal-backdrop').removeClass('transparent-background');
+        $('#settings-modal-content').removeClass('transparent-background');
     });
 
     //Advanced mode
@@ -87,7 +100,7 @@ $(function () {
 
     //Preview mode
     //$('#preview-mode').click(function () {
-    $('#preview-mode').hover(function () {
+    $('#preview-mode').click(function () {
         $('#settings-modal-header h5').toggleClass('invisible');
         $('#settings-inner-body').toggleClass('invisible');
         $('#settings-modal-header').toggleClass('no-border');
@@ -123,6 +136,16 @@ $(function () {
 
         updateClockLayout(worldClocks, globalSettings.maxClocks);
         updateClockSelection(worldClocks, globalSettings);
+    });
+
+    //Sort clocks
+    $('#sort-button').click(function () {
+        //sort by timezone 
+        worldClocks.sort(function(a, b) {
+            return a.tzData.numericalUTCoffset - b.tzData.numericalUTCoffset;
+        });
+        for (var i = 0; i < 8; i++) { worldClocks[i].id = i+1; }
+        updateClockLayout(worldClocks, globalSettings.maxClocks);
     });
 
     //Remember settings
@@ -345,7 +368,18 @@ $(function () {
         updateClockSelection(worldClocks, globalSettings);
     });
 
-
+    //Select resolution
+    $('#resolution-select').change(function () {
+        titleTimeDate = $('#resolution-select').val().split('\.');
+        console.log(titleTimeDate);
+        $.each(worldClocks, function (index, obj) {
+            obj.settings.title.fontSize = titleTimeDate[0];
+            obj.settings.time.fontSize = titleTimeDate[1];
+            obj.settings.date.fontSize = titleTimeDate[2];
+        });
+        updateClockStyle(worldClocks);
+    });
+    
     //Bold/Italic/Underline text
     $('.font-button').click(function () {
         var selector = /(.*)-font-(.*)/.exec(this.id.toLowerCase()); //array will be [0] = clocktitlefontbold, [1] = title, [2] = bold
@@ -779,7 +813,7 @@ function updateClockSelection(worldClocks, globalSettings) {
     });
 
     //if only one clock is selected
-    if (selectCount == 1) {
+    if (selectCount >= 1) {
         //clock settings tab
         //set timzone
         if ((clock.tzData.common == "true") && ($('#all-common-timezone').prop("checked") == true)) {
@@ -884,7 +918,7 @@ function updateClockSelection(worldClocks, globalSettings) {
         $('#theme-select').val('null');
         $('.font-button').addClass('btn-secondary').removeClass('btn-primary');
         $('.font-family').val('null');
-        $('.font-size').val('18');
+        $('.font-size').val('');
         $('.cp input').val('Select');
 
         //more display settings tab
@@ -1089,6 +1123,17 @@ function getDefaultClocks() {
 
 // returns default clock object (for populating array)
 function getDefaultClock() {
+    
+    titleSize = 50;
+    timeSize = 70;
+    dateSize = 30;
+    
+    if (window.screen.availWidth <= 480) {
+        titleSize = 30;
+        timeSize = 40;
+        dateSize = 22;        
+    }
+
     var defaultSettings = {
         id: "",
         localeData: {
@@ -1102,7 +1147,7 @@ function getDefaultClock() {
             ampm: "24hr",
             backgroundColor: "#ffffff",
             title: {
-                fontSize: "14",
+                fontSize: titleSize,
                 fontFamily: "Arial",
                 fontColor: "#000000",
                 bold: false,
@@ -1111,7 +1156,7 @@ function getDefaultClock() {
                 extraCSS: {}
             },
             time: {
-                fontSize: "18",
+                fontSize: timeSize,
                 fontFamily: "Arial",
                 fontColor: "#000000",
                 bold: false,
@@ -1120,7 +1165,7 @@ function getDefaultClock() {
                 extraCSS: {}
             },
             date: {
-                fontSize: "12",
+                fontSize: dateSize,
                 fontFamily: "Arial",
                 fontColor: "#000000",
                 bold: false,
