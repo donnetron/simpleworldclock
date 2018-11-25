@@ -46,11 +46,23 @@ $(function () {
     updateClockStyle(worldClocks, globalSettings);
 
     var seconds = new Date().getSeconds();
+    var minutes = new Date().getMinutes();
+    
    //update time every second
     setInterval(function () {
+
+        //update time value every minute
         if (seconds == 0) {
-            updateClocks(worldClocks); 
+            updateClocks(worldClocks);
+            minutes++;
         }
+
+        //update clock style every hour
+        if (minutes == 0) {
+            updateClockStyle(worldClocks);
+        }
+
+        //blink effects etc every second
         if (seconds < 59) {
             if (seconds % 2 == 0) { $('.blink').css('visibility', 'hidden'); }
             else { $('.blink').css('visibility', 'visible'); }
@@ -58,10 +70,20 @@ $(function () {
             $('.seconds').text(seconds);
             seconds++    
         }
+
+        //reset seconds after 59 (and add a minute)
         else {
             $('.seconds').text(seconds);
             seconds = 0;
+            miuntes++;
         }
+
+        //reset minutes after 59
+        if (minutes > 59) {
+            minutes = 0;
+        }
+
+        //repeat this every second
     }, 1000);
 
     //LISTENERS
